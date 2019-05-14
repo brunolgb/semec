@@ -1,0 +1,249 @@
+body{
+	padding: 0px;
+	padding-bottom: 50px;
+	border: none;
+	margin: 0px;
+	font-family: arial;
+	overflow-x: hidden;
+}
+.indexBloco{
+	display: flex;
+	width: 90%;
+	margin: auto;
+	margin-top: 200px;
+}
+.indexBloco a{
+	display: block;
+	width: 50%;
+	height: 120px;
+	font-size: 1.5em;
+	line-height: 120px;
+	margin: 0px 2px;
+	text-align: center;
+	border: 1px solid;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 0.5em;
+}
+.indexBloco a#rural{
+	background: #4AD049FF;
+	border-color: #309D3FFF;
+}
+.indexBloco a#urbano{
+	background: #DD9F06FF;
+	border-color: #CE5C00FF;
+}
+.tamanho{
+	margin: auto;
+	display: block;
+	background: #fff;
+	padding: 10px;
+	border: 0px solid #ddd;
+	width: 805px;
+	height: 1131px;
+	font-size: 14px;
+	/*box-shadow: 3px 3px 10px #ddd;*/
+}
+.controleMes
+{
+	display: flex;
+	width: 100%;
+	height: 200px;
+	margin-top: 3px;
+}
+.mes
+{
+	display: inline-block;
+	width: 35%;
+	margin: 2px;
+	height: 90%;
+	border: 1px solid #999;
+}
+.mes table
+{
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+.mes table thead{font-weight: bold;}
+.mes table thead tr td{background: #eee;}
+.mes table thead tr td[colspan='7']{border: none; border-bottom: 1px solid #999; background: #fff;}
+.mes table tr td
+{
+	border: 1px solid #999;
+	cursor: pointer;
+}
+
+/*eventos*/
+.eventos{
+	color: #000;
+}
+
+.cor{width: 20px; height: 3px;}
+.diaLetivo{background: #FAF128FF;}
+.feriado{background: #CC0000FF; color: #fff;}
+.sabadoDomingo{background: #F2B5FFFF;}
+.facultativo{background: #26C30BFF; color: #fff;}
+.recessoEscolar{background: #97D2F6FF;}
+.semanaPedagogica{background: #A600A9FF; color: #fff;}
+.ferias{background: #77AA6CFF;}
+.atribuicao{background: #F57900FF;}
+.bimestre{background: #FAF128FF; color: red; font-weight: bold;}
+.integral{background: #056DCDFF; color: #fff; font-weight: bold;}
+.reposicaopreF{background: #39454FFF; color: #fff; font-weight: bold;}
+.reposicaof{background: #036C3AFF; color: #fff; font-weight: bold;}
+.mostrardias{
+	display: block;
+	padding: 2px;
+	font-size: 11px;
+}
+#aparecer{
+	display: block;
+	position: absolute;
+	top: 0px;
+	width: 300px;
+	height: 300px;
+	background: red;
+}
+.cad{
+	display: block;
+	padding: 10px;
+	margin-bottom: 20px;
+	width: 100%;
+	height: auto;
+	background: #eee;
+	box-sizing: border-box;
+	transition: height 1s ease;
+}
+.cad h1{
+	color: #555;
+}
+.cad aside{
+	display: flex;
+	background: #fff;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-bottom: 3px;
+}
+.cad aside label{
+	display: inline-block;
+	width: 20%;
+	line-height: 60px;
+	padding-left: 30px;
+	border-right: 1px solid #ddd;
+	box-sizing: border-box;
+}
+.cad aside input,.cad aside textarea,.cad aside select,.cad aside select option{
+	width: 80%;
+	padding: 15px;
+	font-size: 1.2em;
+	border: none;
+	outline: none;
+	background: #fff;
+	box-sizing: border-box;
+}
+.cad .controleBotao{
+	display: flex;
+}
+.cad .controleBotao button{
+	margin-top: 10px;
+	display: block;
+	width: 300px;
+	height: 60px;
+	
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	font-size: 17px;
+	
+	outline: none;
+	margin-right: 10px;
+}
+.cad .controleBotao button[type='submit']
+{
+	background: #73D216FF;
+	border: 1px solid #490;
+}
+.cad .controleBotao button[type='reset']
+{
+	background: #F57900FF;
+	border: 1px solid #C50;
+}
+
+/*cabeçalho*/
+header{
+	display: flex;
+	width: 100%;
+	height: 120px;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+}
+.logos{
+	display: block;
+	width: 130px;
+	height: 130px;
+}
+.logos figure{
+	padding: 0px;
+	margin: 0px;
+}
+.logos figure img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.titulos{
+	display: block;
+	width: 600px;
+	font-size: 20px;
+}
+.titulos span{
+	display: block;
+	margin-bottom: 10px;
+}
+.tamanho h3{
+	display: block;
+	width: 100%;
+	padding: 0px;
+	margin: 3px;
+	text-align: center;
+	text-transform: uppercase;
+}
+footer{
+	display: flex;
+	width: 100%;
+	height: 145px;
+	box-sizing: border-box;
+	font-size: 12px;
+	border-top: 1px solid #ddd;
+}
+footer .legenda tbody tr td{
+	height: 2px;
+	padding: 0px;
+	margin: 0px;
+}
+footer .legenda{border-right: 1px solid #ddd; width: 200px;}
+footer table tr td{height: 3px;}
+footer .obs{
+	display: block;
+	margin-left: 10px;
+	padding-top: 10px;
+}
+footer .obs span{
+	display: block;
+	font-size: 16px;
+	padding: 1px 0px;
+}
+.obsTitle{
+ 	font-weight: bold;
+}
+
+.input{
+	display: block;
+	padding: 20px 20px;
+	margin: 5px;
+	font-size: 1.1em;
+	width: 100%;
+}
