@@ -6,7 +6,7 @@ class Banco extends PDO
 	function __construct()
 	{
 		try {
-			$this->con = new PDO ("pgsql:host=localhost;dbname=semec","postgres","f21s11b96");
+			$this->con = new PDO ("pgsql:host=localhost;dbname=","","");
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
