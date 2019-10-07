@@ -1,0 +1,28 @@
+﻿CREATE TABLE person(
+id SERIAL PRIMARY KEY,
+name_person VARCHAR(200) NOT NULL,
+birth DATE NOT NULL,
+cpf VARCHAR(11) UNIQUE,
+password_acess VARCHAR(50),
+registration_date TIMESTAMP
+)
+
+CREATE TABLE calendar_information(
+id SERIAL PRIMARY KEY,
+locality VARCHAR(50) NOT NULL,
+calendar_name VARCHAR(200) NOT NULL,
+school_year INT,
+modification_date TIMESTAMP,
+registered_user INT,
+CONSTRAINT calendar_information_person FOREIGN KEY(registered_user) REFERENCES person(id) ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+CREATE TABLE calendar(
+id SERIAL PRIMARY KEY,
+id_calendar INT NOT NULL,
+calendar_date DATE NOT NULL,
+event VARCHAR(200)  NOT NULL,
+modification_date TIMESTAMP NOT NULL,
+registered_user INT NOT NULL,
+CONSTRAINT calendar_person FOREIGN KEY(registered_user) REFERENCES person(id) ON DELETE CASCADE ON UPDATE CASCADE
+)

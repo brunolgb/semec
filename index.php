@@ -1,49 +1,36 @@
-<?php session_start(); ?>
+<?php session_destroy(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<link rel="shorcut icon" href="arquivos/logo-semec.png">
-	<link rel="stylesheet" href="arquivos/estilo.css">
+	<link rel="shorcut icon" href="src/assets/icon.png">
+	<link rel="stylesheet" href="src/style/estilo.css">
 	<script src="jv.js"></script>
-	<title>SEMEC</title>
+	<title>Secretaria Municipal de Educação de Comodoro</title>
 </head>
 <body>
-	<header class="header">
-		<div class="sombra">
+	<div class="background"></div>
+	<div class="box-login">
+		<div class="box-control-login">
 			<figure>
-				<img src="arquivos/logo-semec.png" alt="SECRETARIA MUNICIPAL DE EDUCAÇÃO E CULTURA" class="logoG">
+				<img src="src/assets/logo_white.svg" alt="Logo SEMEC" srcset="">
 			</figure>
+			<form action="./src/validation.php" method="post">
+				<div class="box_field">
+					<label for="cpf">
+						<img src="./src/assets/icon-user-login.png" alt="CPF">
+					</label>
+					<input type="text" name='cpf' placeholder='Digite seu CPF, ex: 000.000.000-00' maxlength='14' autofocus>
+				</div>
+				<div class="box_field">
+					<label for="password">
+						<img src="./src/assets/icon-password-login.png" alt="Senha" maxlength='50'>
+					</label>
+					<input type="password" name='password_acess' placeholder='Digite sua senha'>
+				</div>
+				<button class='submit'>Enviar</button>
+			</form>
 		</div>
-	</header>
-	
-	<div id="botoes">
-		<ul>
-			<li>
-				<a href="validacao.php?pagina=calendario">
-					<img src="arquivos/icone-calendario.png">
-					Calendários Escolar
-				</a>
-			</li>
-			<li>
-				<a href="calendario.php?calendario=campo">
-					<img src="arquivos/icone-oficio.png">
-					Ofícios
-				</a>
-			</li>
-			<li>
-				<a href="validacao.php?pagina=arquivo-passivo">
-					<img src="arquivos/icone-passivo.png">
-					Arquivo Passivo
-				</a>
-			</li>
-			<li>
-				<a href="validacao.php?pagina=transferencias">
-					<img src="arquivos/icone-transferencia.png">
-					Transferências
-				</a>
-			</li>
-		</ul>
 	</div>
 </body>
 </html>

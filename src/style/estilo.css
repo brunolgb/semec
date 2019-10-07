@@ -1,0 +1,210 @@
+:root{
+	--background-transparente: rgba(0,97,108,0.6);
+	--pattern: rgba(0,97,108,1);
+	--light-pattern: rgb(51,147,160);
+	--white: #fff;
+	--black: rgb(51,51,51);
+	--green: rgb(102,197,77);
+	--orange: rgb(221,160,0);
+	--red: rgb(212,0,23);
+	--pink: rgba(177,0,212);
+	--light-blue: rgb(29,219,240);
+}
+@font-face{
+	font-family: fontSecundary;
+	src: url("../fonts/AnjaliOldLipi.ttf");
+}
+@font-face{
+	font-family: fontPattern;
+	src: url("../fonts/Arial.ttf");
+}
+*{
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-family: fontPattern;
+	box-sizing: border-box;
+	color: var(--black);
+}
+head, script{
+	display: none;
+}
+body{
+	border: none;
+	font-size: 16px;
+	overflow-x: hidden;
+}
+ul li{list-style: none;}
+a{text-decoration: none;}
+figure{
+	margin: 0px;
+	padding: 0px;
+}
+input, select{
+	border-radius: 0.2em;
+	display: block;
+	padding: 10px;
+	font-size: 16px;
+	outline: none;
+	color: var(--preto);
+	border: 1px solid #ddd;
+}
+button{
+	border-radius: 0.2em;
+	display: block;
+	min-width: 100px;
+	padding: 10px;
+	font-size: 1em;
+	outline: none;
+	color: var(--preto);
+	border: none;
+	cursor: pointer;
+}
+/* session login */
+.background{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0px;
+	left: 0;
+	z-index: 9998;
+	background: url('../assets/large_facada.jpeg') no-repeat;
+	background-size: 100%;
+	filter:blur(10px);
+}
+@media(max-width: 1000px){
+	.background{
+		background-size: 200%;
+		background-position: center;
+	}
+}
+.box-login{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: 9999;
+	background: var(--background-transparente);
+}
+.box-control-login{
+	width: 500px;
+	height: auto;
+	min-height: 200px;
+	margin: auto;
+	margin-top: 80px;
+}
+.box-control-login *{
+	margin:auto;
+}
+.box-control-login figure{margin-bottom: 50px;}
+.box-control-login .box_field{
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 21px;
+}
+.box-control-login .box_field label{
+	height: 50px;
+	background:var(--light-pattern);
+}
+.box-control-login .box_field input{
+	border: none;
+	width: 90%;
+}
+.submit{
+	background: none;
+	border: 1px solid var(--light-blue);
+	color: var(--light-blue);
+}
+
+.header{
+	display: block;
+	width: 100%;
+	height: 300px;
+	padding: 0px;
+	position: relative;
+	background: url('../assets/smaller_facada.jpeg') no-repeat;
+	background-position: center -80px;
+	background-size: 100%;
+}
+.header .header-transparent{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0;
+	z-index: 9997;
+	background-color: var(--background-transparente);
+}
+.header figure{
+	position: absolute;
+	z-index: 9998;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#botoes{
+	display: block;
+}
+#botoes ul{
+	display: flex;
+	width: 1200px;
+	padding: 0px;
+	margin: auto;
+}
+#botoes ul li{
+	width: 25%;
+	margin: 5px;
+	border: 1px solid #ddd;
+	border-radius: 0.4em;
+	box-shadow: 1px 1px 3px #eee;
+}
+#botoes ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: var(--azul);
+	text-align: center;
+	font-size: 20px;
+
+}
+#botoes ul li a img{
+	display: block;
+	margin: auto;
+	width: 210px;
+	height: 320px;
+}
+.formularios{
+	display: block;
+	width: 99%;
+	height: auto;
+	margin: auto;
+	color: var(--preto);
+}
+.disFlex{display: flex;}
+.preenche-calendario{
+	display: block;
+	height: inherit;
+	border-right: 1px solid #ddd;
+	padding-right: 10px;
+}
+
+.cor{width: 20px; height: 3px;}
+.diaLetivo{background: #FAF128FF;}
+.feriado{background: #CC0000FF; color: #fff;}
+.sabadoDomingo{background: #F2B5FFFF;}
+.facultativo{background: #26C30BFF; color: #fff;}
+.recessoEscolar{background: #97D2F6FF;}
+.semanaPedagogica{background: #A600A9FF; color: #fff;}
+.ferias{background: #77AA6CFF;}
+.atribuicao{background: #F57900FF;}
+.bimestre{background: #FAF128FF; color: red; font-weight: bold;}
+.integral{background: #056DCDFF; color: #fff; font-weight: bold;}
+.reposicaopreF{background: #39454FFF; color: #fff; font-weight: bold;}
+.reposicaof{background: #036C3AFF; color: #fff; font-weight: bold;}
+.mostrardias{
+	display: block;
+	padding: 2px;
+	font-size: 11px;
+}
