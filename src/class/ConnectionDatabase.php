@@ -22,7 +22,7 @@ class ConnectionDatabase{
     }
     private function verification($condition)
     {
-        return $condition ? true : false;
+        return $condition ? '{"message":true}' : '{"message":false}';
     }
 
     public function insert($stmt, $param)
