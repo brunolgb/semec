@@ -41,21 +41,19 @@ deleteRegist.forEach(e => {
         const id = e.getAttribute('idRegistro');
         const tbl = e.getAttribute('tbl');
 
-        // const req = new XMLHttpRequest();
-        // req.open('GET', `../../callDelete.php?id=${id}&tbl=${tbl}`);
-        // req.send(null);
-        // req.onreadystatechange = () => {
-        //     const response = req.responseText;
-        //     console.log(response);
-        // }
-
         fetch(`../../callDelete.php?id=${id}&tbl=${tbl}`)
+            .then(e => e.json())
             .then(e => {
-                console.log(e.statusText)
-                console.log(e);
+                if(e.message)
+                {
+                    window.location.reload();
+                }
+                else{
+                    console.log('mensagem de erro');
+                }
             })
             .catch(e => {
-                console.log('deu erro na pagina');
+                console.log('Não foi possivel fazer a requisição');
             })
     })
 })
