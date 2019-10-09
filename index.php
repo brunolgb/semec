@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="shorcut icon" href="src/assets/icon.png">
 	<link rel="stylesheet" href="src/style/estilo.css">
+	<link rel="stylesheet" href="src/style/styleLogin.css">
 	<script src="jv.js"></script>
 	<title>Secretaria Municipal de Educação de Comodoro</title>
 </head>
@@ -13,7 +14,7 @@
 	<div class="box-login">
 		<div class="box-control-login">
 			<figure>
-				<img src="src/assets/logo_white.svg" alt="Logo SEMEC" srcset="">
+				<img src="src/assets/logo_white.svg" alt="Logo SEMEC">
 			</figure>
 			<form action="./src/validation.php" method="post">
 				<div class="box_field">
