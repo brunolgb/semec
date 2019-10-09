@@ -5,10 +5,10 @@ $id = $_GET['id'];
 $table = $_GET["tbl"];
 
 
-$delete = new Delete();
+$delete = new ConnectionDatabase();
 $comand = "DELETE FROM $table WHERE id=:id"; 
 
-$return = $delete->deleted(
+$return = $delete->delete(
     $comand,
     array(
         "id" => $id

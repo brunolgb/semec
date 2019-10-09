@@ -36,8 +36,8 @@
 
            include_once('../../class/LoadClass.php');
 
-           $list = new Select();
-           $listed = $list->findAll(
+           $list = new ConnectionDatabase();
+           $listed = $list->find(
                "SELECT * FROM calendar_information",
                null);
 

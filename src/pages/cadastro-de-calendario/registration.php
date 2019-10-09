@@ -19,7 +19,7 @@ $storage[":finesh"] = 'n';
 
 
 
-$insert = new Insert();
+$insert = new ConnectionDatabase();
 $comand = "INSERT INTO calendar_information (calendar_name, school_year, locality, modification_date, registered_user, fineshed)
 VALUES ( 
 '{$storage[':calendarName']}',
@@ -39,10 +39,12 @@ VALUES (
 // :registered_use,
 // :finesh)";
 
-$return = $insert->inserting(
+$return = $insert->insert(
     $comand,
     $storage
 );
+
+echo $return;
 
 if($return)
 {
