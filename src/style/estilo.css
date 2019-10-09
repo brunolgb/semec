@@ -4,11 +4,13 @@
 	--light-pattern: rgb(51,147,160);
 	--white: #fff;
 	--black: rgb(51,51,51);
+	--light-black: rgb(170, 170, 170);
 	--green: rgb(102,197,77);
-	--orange: rgb(221,160,0);
+	--yellow: rgb(221,160,0);
 	--red: rgb(212,0,23);
 	--pink: rgba(177,0,212);
 	--light-blue: rgb(29,219,240);
+	--orange: rgb(202, 121, 0);
 }
 @font-face{
 	font-family: fontSecundary;
@@ -31,7 +33,7 @@ head, script{
 }
 body{
 	border: none;
-	font-size: 16px;
+	font-size: 14px;
 	overflow-x: hidden;
 }
 ul li{list-style: none;}
@@ -44,11 +46,16 @@ input, select{
 	border-radius: 0.2em;
 	display: block;
 	padding: 10px;
-	font-size: 16px;
+	font-size: 14px;
 	outline: none;
 	color: var(--preto);
-	border: 1px solid #ddd;
+	border: 1px solid var(--light-black);
+	transition: border .3s ease-in-out;
 }
+input:focus, select:focus{
+	border: 1px solid var(--pattern);
+}
+label{color: var(--pattern)};
 button{
 	border-radius: 0.2em;
 	display: block;
@@ -59,62 +66,6 @@ button{
 	color: var(--preto);
 	border: none;
 	cursor: pointer;
-}
-/* session login */
-.background{
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	top: 0px;
-	left: 0;
-	z-index: 9998;
-	background: url('../assets/large_facada.jpeg') no-repeat;
-	background-size: 100%;
-	filter:blur(10px);
-}
-@media(max-width: 1000px){
-	.background{
-		background-size: 200%;
-		background-position: center;
-	}
-}
-.box-login{
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	z-index: 9999;
-	background: var(--background-transparente);
-}
-.box-control-login{
-	width: 500px;
-	height: auto;
-	min-height: 200px;
-	margin: auto;
-	margin-top: 80px;
-}
-.box-control-login *{
-	margin:auto;
-}
-.box-control-login figure{margin-bottom: 50px;}
-.box-control-login .box_field{
-	display: flex;
-	flex-wrap: nowrap;
-	width: 100%;
-	background: #fff;
-	margin-bottom: 21px;
-}
-.box-control-login .box_field label{
-	height: 50px;
-	background:var(--light-pattern);
-}
-.box-control-login .box_field input{
-	border: none;
-	width: 90%;
-}
-.submit{
-	background: none;
-	border: 1px solid var(--light-blue);
-	color: var(--light-blue);
 }
 
 .header{
@@ -144,9 +95,7 @@ button{
 	transform: translateX(-50%);
 }
 
-#botoes{
-	display: block;
-}
+#botoes{ display: block; }
 #botoes ul{
 	display: flex;
 	width: 1200px;
@@ -175,36 +124,173 @@ button{
 	width: 210px;
 	height: 320px;
 }
-.formularios{
-	display: block;
-	width: 99%;
+
+.box-control{
+	width: 100vw;
+	min-height: 500px;
 	height: auto;
-	margin: auto;
-	color: var(--preto);
+	padding-top: 90px; 
 }
-.disFlex{display: flex;}
-.preenche-calendario{
-	display: block;
-	height: inherit;
-	border-right: 1px solid #ddd;
-	padding-right: 10px;
+.box-control-header{
+	width: 1260px;
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 3px 5px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.box-control-header .title{ width: 85%; }
+.box-control-header .title span{ color: var(--pattern)}
+.box-control-header .title span:nth-child(1){ font-size: 12px;}
+.box-control-header .title span:nth-child(2){ font-size: 25px;}
+
+.registration{
+	width: 15%;
+	height: 100%;
+}
+.btnPattern{
+	width: 100%;
+	min-width: 120px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border: 1px solid var(--pattern);
+	border-radius: 5px;
+	color: var(--pattern);
+	margin:auto;
+	font-size: 14px;
+}
+.box-control-body{
+	width: 100%;
+	max-width: 1260px;
+	min-height: 200px;
+	height: auto;
+	padding: 0px 10px;
+	margin: auto;
+}
+.box-control-body .titleTableBody{
+	width: 100%;
+	height: auto;
+	display: flex;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid var(--light-black);
+	font-weight: bold;
+}
+.box-control-body .TableBody{
+	width: 100%;
+	height: auto;
+	display: flex;
+	margin-bottom: 3px;
+	border-bottom: 1px solid var(--light-black);
+}
+.box-control-body .TableBody:hover{ font-weight: bold; }
+.box-control-body .titleTableBody div, .box-control-body .TableBody div{text-align: center;}
+#acao{
+	display:flex;
+	flex-wrap: nowrap;
+}
+#acao img{
+	height: 20px;
+	cursor: pointer;
+	margin: auto;
+}
+.tam5{width: 5%;}
+.tam7{width: 7%;}
+.tam10{width: 10%;}
+.tam20{width: 20%;}
+.tam30{width: 30%;}
+.tam40{width: 40%;}
+.tam50{width: 50%;}
+.tam60{width: 60%;}
+.tam70{width: 70%;}
+.tam80{width: 80%;}
+.tam90{width: 90%;}
+.tam100{width: 100%;}
+
+
+.form-pattern{
+	font-size: 1.1em;
+}
+.fieldControl{
+	width: 70%;
+	margin: auto;
+	display: flex;
+	padding: 0px;
+	overflow: hidden;
+}
+.fieldForm:nth-child(2){
+	margin-left: 2px;
+	width: 19%;
+}
+.fieldForm input{width: 100%}
+.locatityCalendar{
+	width: 70%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	margin:auto;
+	margin-top: 30px;
+}
+.titleLocalityCalendar{
+	width: 100%;
+	padding: 5px;
+	color: var(--pattern);
+}
+.choiseLocality{
+	width: 32.1%;
+	height: 300px;
+	border: 1px solid var(--light-black);
+	border-radius: 5px;
+	text-align: center;
+	color: var(--pattern);
+	overflow: hidden;
+	margin: auto;
+	margin: 5px;
+	cursor: pointer;
+	filter: contrast(15%);
+	transition: .3s ease-in-out;
+}
+.locatityCalendar div img{
+	margin: auto;
+	margin-top: 20px;
+	transition: transform .3s ease-in-out;
+}
+.locatityCalendar div span{
+	font-size: 1.1em;
+	color: var(--pattern);
+	margin-top: 10px;
+	transform: translateY(0);
+	transition: transform .3s ease-in-out;
+	margin-bottom: 20px;
+}
+.locatityCalendar div:hover img{
+	transform: scale(1.1);
+}
+.locatityCalendar div:hover span{
+	transform: translateY(15px);
 }
 
-.cor{width: 20px; height: 3px;}
-.diaLetivo{background: #FAF128FF;}
-.feriado{background: #CC0000FF; color: #fff;}
-.sabadoDomingo{background: #F2B5FFFF;}
-.facultativo{background: #26C30BFF; color: #fff;}
-.recessoEscolar{background: #97D2F6FF;}
-.semanaPedagogica{background: #A600A9FF; color: #fff;}
-.ferias{background: #77AA6CFF;}
-.atribuicao{background: #F57900FF;}
-.bimestre{background: #FAF128FF; color: red; font-weight: bold;}
-.integral{background: #056DCDFF; color: #fff; font-weight: bold;}
-.reposicaopreF{background: #39454FFF; color: #fff; font-weight: bold;}
-.reposicaof{background: #036C3AFF; color: #fff; font-weight: bold;}
-.mostrardias{
-	display: block;
-	padding: 2px;
-	font-size: 11px;
+.locatityCalendarMoviment{
+	filter: contrast(100%);
+	transform: scale(1.04);
+	border: 2px solid var(--pattern);
+}
+.submit{
+	width: auto;
+	min-width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid var(--pattern);
+	border-radius: 3px;
+	cursor: pointer;
+	background: var(--white);
+	color: var(--pattern);
+	margin: 10px auto 10px auto;
+	transition: .2s ease-in-out;
+}
+.submit:hover{
+	background: var(--pattern);
+	color: var(--white)
 }
