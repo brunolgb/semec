@@ -1,5 +1,6 @@
 <?php
     include_once('../../verify_session.php');
+    include_once('../fillCount.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,12 +42,7 @@
                 "SELECT * FROM calendar_information",
                 null);
 
-            if(!count($listed))
-            {
-                echo "<div class='TableBody' style='border: none'>";
-                    echo "<div class='tam100'>Não há registros</div>";
-                echo "</div>";
-            }
+            counting($listed);
 
             foreach($listed as $linha) { 
                 echo "<div class='TableBody'>";
