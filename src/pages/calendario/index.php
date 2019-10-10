@@ -53,9 +53,9 @@
                     echo "<div class='tam10'>{$linha['fineshed']}</div>";
                     echo "<div class='tam10'>{$linha['modification_date']}</div>";
                     echo "<div class='tam7' id='acao'>";
-                        echo "<img src='../../assets/icon-search.png'>";
-                        echo "<img src='../../assets/icon-update.png'>";
-                        echo "<img src='../../assets/icon-delete.png' delete idRegistro='{$linha["id"]}' tbl='calendar_information'>";
+                        echo "<img src='../../assets/icon-search.png' title='Preencher Calendario' linkWindow='../preenchendo-calendario'>";
+                        echo "<img src='../../assets/icon-update.png' title='Editar informações do calendario'>";
+                        echo "<img src='../../assets/icon-delete.png' delete idRegistro='{$linha["id"]}' tbl='calendar_information' title='Deletar o calendario'>";
                     echo "</div>";
                 echo "</div>";
             }

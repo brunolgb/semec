@@ -294,3 +294,140 @@ button{
 	background: var(--pattern);
 	color: var(--white)
 }
+.control-fill{
+	flex-wrap: nowrap;
+	height: 500px;
+}
+.fill-header,.fill-right{
+	padding: 5px;
+	border-radius: 2px;
+}
+.fill-header{
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid var(--light-black);
+}
+.fill-header div{
+    margin: auto;
+}
+.fill-header span{
+	margin: 5px 0;
+    font-size: 1.4em;
+	color: var(--pattern);
+	text-transform: capitalize;
+}
+.inputs-fill-left label{
+	margin: 5px 0;
+}
+.fill-body{
+    display: flex;
+	flex-wrap: wrap;
+}
+.month{
+	width: 31%;
+    min-width: 350px;
+    height: 330px;
+    margin: auto;
+	margin: 12px;
+	padding: 5px;
+	border: 1px solid var(--light-black);
+	border-radius: 5px;
+}
+.title-month{
+	text-align: center;
+	padding: 10px 0px;
+}
+.days{
+	height: auto;
+	border-bottom: 1px solid var(--light-black);
+	border-top: 1px solid var(--light-black);
+}
+.semana{
+    display: flex;
+}
+.title-semana{
+	font-weight: bold;
+}
+.title-semana .day{
+	border: none;
+}
+.day{
+	width: 15%;
+	max-width: 52px;
+	height: 40px;
+	margin: 1px;
+    text-align: center;
+	align-items: baseline;
+	line-height: 40px;
+	position: relative;
+}
+.month_information{
+	height: 30px;
+	line-height: 30px;
+}
+.choise-event-day{
+	width: 300px;
+	height: auto;
+	min-height: 50px;
+	background: var(--white);
+	border-radius: 3px;
+	border: 1px solid var(--pattern);
+	padding: 5px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9996;
+	box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+	cursor: default;
+}
+.moviment-choise-event-day-left{
+	transform: translateX(-20%);
+}
+.moviment-choise-event-day-right{
+	transform: translateX(-85%);
+}
+.shapener-choise-day{
+	position: absolute;
+	top: -13px;
+	left: 50%;
+	transform: translateX(-50%)
+}
+.shapener-choise-day-left{
+	left: 15%;
+	transform: translateX(-15%);
+}
+.shapener-choise-day-right{
+	left: 90%;
+	transform: translateX(-90%);
+}
+.btnEventChoiseDay{
+	width: 40px;
+	height: 40px;
+	padding: 5px 0px;
+	margin: auto;
+	margin-bottom: 10px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 18px;
+	transition: .3s ease-in-out;
+}
+.newEventChoiseDay{
+	background: var(--white);
+	color: var(--pattern);
+	border-color: var(--pattern);
+}
+.newEventChoiseDay:hover{
+	background: var(--pattern);
+	color: var(--white);
+}
+
+.closeEventChoiseDay{
+	background: var(--red);
+	color: var(--white);
+	border-color: var(--red);
+	position: absolute;
+	right: -10px;
+	top: -10px;
+}
