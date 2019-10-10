@@ -196,7 +196,6 @@ function checkingChoiseSemana(daySemana, day)
             }
         }
     });
-
 }
 const daySemana = document.querySelectorAll('[day]');
 daySemana.forEach(day => {
@@ -205,9 +204,11 @@ daySemana.forEach(day => {
         creatingParentChoise(day);
         checkingChoiseSemana(daySemana, day);
 
-        const closeBoxChoise = document.querySelector('.closeEventChoiseDay');
-        closeBoxChoise.addEventListener('click', ()=>{
-            closeBoxChoise.parentNode.style.display = 'none';
-        });
+        const close_choiseEventDay = document.querySelector('.choise-event-day');
+        close_choiseEventDay.onclick = () => {
+            close_choiseEventDay.style.display = 'none';
+        }
     })
 });
+
+
