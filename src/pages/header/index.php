@@ -14,6 +14,9 @@
         </div>
         <ul class='menu'>
             <li>
+                <a href="../home">Página Inicial</a>
+            </li>
+            <li>
                 <a href="">Calendários</a>
             </li>
             <li>
