@@ -204,11 +204,9 @@ daySemana.forEach(day => {
         creatingParentChoise(day);
         checkingChoiseSemana(daySemana, day);
 
-        const close_choiseEventDay = document.querySelector('.choise-event-day');
+        const close_choiseEventDay = document.querySelector('.closeEventChoiseDay');
         close_choiseEventDay.onclick = () => {
-            close_choiseEventDay.style.display = 'none';
+            close_choiseEventDay.parentNode.style.display = 'none';
         }
     })
 });
-
-

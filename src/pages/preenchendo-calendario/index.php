@@ -1,6 +1,6 @@
 <?php
     include_once('../../verify_session.php');
-    include_once('../../class/ConnectionDatabase.php');
+    include_once('../../class/LoadClass.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -61,41 +61,11 @@
                 </div>
                 <div class="fill-body tam100">
                     <?php
-                    for($i = 0; $i < 12; $i++)
+                    $month = new AllMonth();
+                    for ($i=0; $i < 12; $i++)
+                    // foreach ($json_monthAll as $linha)
                     {
-                        echo "<div class='month'>";
-                            echo "<div class='title-month'>";
-                                echo "JANEIRO";
-                            echo "</div>";
-                            echo "<div class='semana title-semana'>";
-                                echo "<div class='day'>D</div>";
-                                echo "<div class='day'>S</div>";
-                                echo "<div class='day'>T</div>";
-                                echo "<div class='day'>Q</div>";
-                                echo "<div class='day'>Q</div>";
-                                echo "<div class='day'>S</div>";
-                                echo "<div class='day'>S</div>";
-
-                            echo "</div>";
-                            echo "<div class='days tam100'>";
-                                echo "<div class='semana tam100'>";
-                                    $cont = 1;
-                                    for($ii = 1; $ii < 31; $ii++)
-                                    {
-                                        echo "<div class='day' day>{$ii}</div>";
-                                        if($cont == 7 or $cont == 14 or $cont == 21 or $cont == 28)
-                                        {
-                                            echo "</div>";
-                                            echo "<div class='semana'>";
-                                        }
-                                        $cont++;
-                                    }
-                                echo "</div>";
-                            echo "</div>";
-                            echo "<div class='month_information'>";
-                            echo "I.B. T.B";
-                            echo "</div>";
-                        echo "</div>";
+                        $month->mountMonth($i);
                     }
                     ?>
                 </div>  
