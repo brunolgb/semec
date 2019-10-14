@@ -6,7 +6,7 @@
 	left: 0;
 	z-index: 9998;
 	background: url('../assets/large_facada.jpeg') no-repeat;
-	background-size: 100%;
+	background-size: 100% 100%;
 	filter:blur(10px);
 }
 @media(max-width: 1000px){
@@ -52,4 +52,32 @@
 	background: none;
 	border: 1px solid var(--light-blue);
 	color: var(--light-blue);
+	outline: none;
+}
+.registration-section{
+	display: none;
+}
+.registration-section-mov{
+	display: block;
+}
+.registration{
+	height: 30px;
+	line-height: 30px;
+	color: var(--white);
+	border-bottom: 1px solid var(--white);
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+}
+.erro{
+	width: 300px;
+	height: auto;
+	background: rgb(109, 9, 9);
+	color: #fff;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	z-index: 9999;
+	padding: 15px;
+	border-radius: 5px;
 }

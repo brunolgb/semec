@@ -264,12 +264,8 @@ button{
 	transition: transform .3s ease-in-out;
 	margin-bottom: 20px;
 }
-.locatityCalendar div:hover img{
-	transform: scale(1.1);
-}
-.locatityCalendar div:hover span{
-	transform: translateY(15px);
-}
+.locatityCalendar div:hover img{transform: scale(1.1);}
+.locatityCalendar div:hover span{transform: translateY(15px);}
 
 .locatityCalendarMoviment{
 	filter: contrast(100%);
@@ -279,8 +275,8 @@ button{
 .submit{
 	width: auto;
 	min-width: 100px;
-	height: 30px;
-	line-height: 30px;
+	height: 35px;
+	line-height: 35px;
 	text-align: center;
 	border: 1px solid var(--pattern);
 	border-radius: 3px;
@@ -307,18 +303,14 @@ button{
     flex-wrap: nowrap;
     border-bottom: 1px solid var(--light-black);
 }
-.fill-header div{
-    margin: auto;
-}
+.fill-header div{margin: auto;}
 .fill-header span{
 	margin: 5px 0;
     font-size: 1.4em;
 	color: var(--pattern);
 	text-transform: capitalize;
 }
-.inputs-fill-left label{
-	margin: 5px 0;
-}
+.inputs-fill-left label{margin: 5px 0;}
 .fill-body{
     display: flex;
 	flex-wrap: wrap;
@@ -343,15 +335,9 @@ button{
 	border-bottom: 1px solid var(--light-black);
 	border-top: 1px solid var(--light-black);
 }
-.semana{
-    display: flex;
-}
-.title-semana{
-	font-weight: bold;
-}
-.title-semana .day{
-	border: none;
-}
+.semana{display: flex;}
+.title-semana{font-weight: bold;}
+.title-semana .day{border: none;}
 .day{
 	width: 15%;
 	max-width: 52px;
@@ -368,9 +354,7 @@ button{
 	height: 30px;
 	line-height: 30px;
 }
-.month_information div span{
-	display: inline;
-}
+.month_information div span{display: inline;}
 .choise-event-day{
 	width: 300px;
 	height: auto;
@@ -386,12 +370,8 @@ button{
 	box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
 	cursor: default;
 }
-.moviment-choise-event-day-left{
-	transform: translateX(-20%);
-}
-.moviment-choise-event-day-right{
-	transform: translateX(-85%);
-}
+.moviment-choise-event-day-left{transform: translateX(-20%);}
+.moviment-choise-event-day-right{transform: translateX(-85%);}
 .shapener-choise-day{
 	position: absolute;
 	top: -13px;
@@ -444,9 +424,7 @@ button{
 	background: var(--red);
 	color: var(--white);
 }
-#facultativo{
-	background: var(--light-blue)
-}
+#facultativo{background: var(--light-blue)}
 #recesso_escolar{
 	background: var(--pattern);
 	color: var(--white);
@@ -455,9 +433,7 @@ button{
 	background: var(--pink);
 	color: var(--white)
 }
-#ferias{
-	background: var(--green)
-}
+#ferias{background: var(--green)}
 #atribuicao{
 	background: var(--black);
 	color: var(--white)
