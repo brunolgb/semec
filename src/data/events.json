@@ -1,0 +1,34 @@
+[
+    {
+        "name":"letivo"
+    },
+    {
+        "name":"feriado"
+    },
+    {
+        "name":"facultativo"
+    },
+    {
+        "name":"recesso_escolar",
+        "nameReplace": "recesso escolar"
+    },
+    {
+        "name":"semana_pedagogica",
+        "nameReplace": "semana pedagógica"
+    },
+    {
+        "name":"ferias",
+        "nameReplace": "férias"
+    },
+    {
+        "name":"atribuicao",
+        "nameReplace": "atribuição"
+    },
+    {
+        "name":"bimestre"
+    },
+    {
+        "name":"sabado_domingo",
+        "nameReplace": "sabado/domingo"
+    }
+]

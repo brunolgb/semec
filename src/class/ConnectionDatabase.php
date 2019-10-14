@@ -17,7 +17,7 @@ class ConnectionDatabase{
     {
         foreach ($params as $key => $value)
         {
-            $this->recebe->bindParam($key, $value);   
+            $this->recebe->bindParam($key, $value);
         }
     }
     private function verification($condition)

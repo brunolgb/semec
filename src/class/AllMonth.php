@@ -4,6 +4,7 @@ include_once("ConnectionDatabase.php");
 class AllMonth{
     public $json_monthAll;
     private $connectionDatabase;
+    private $id_calendar;
     public $monthName;
     public $monthStart;
     public $number_of_days;
@@ -24,12 +25,33 @@ class AllMonth{
             echo "<div class='day'></div>";    
         }
     }
+    private function getAttributeDay($date)
+    {
+        $findDate = $this->connectionDatabase->find(
+            "SELECT event FROM calendar WHERE calendar_date=:calendarDate AND id_calendar='{$this->id_calendar}'",
+            array(":calendarDate"=>$date)
+        );
+        [$numero] = $findDate;
+
+        return $numero["event"];
+    }
     private function addDayinSemana()
     {
         $cont = 1;
         for($i = 1; $i <= $this->number_of_days; $i++)
         {
-            echo "<div class='day' day>{$i}</div>";
+            $monthNumber = $this->numberMonth < 10 ? '0' . $this->numberMonth : $this->numberMonth;
+            $day = $i < 10 ? '0' . $i : $i;
+            $date_complete = "2020-{$monthNumber}-{$day}";
+            $attribute = $this->getAttributeDay($date_complete);
+            if(empty($attribute))
+            {
+                $attribute = '';
+            }
+            else{
+                $attribute = "id='{$attribute}'";
+            }
+            echo "<div class='day' {$attribute} day date='$date_complete'>{$i}</div>";
 
             // numeros de controle
             $sem1 = (7 - $this->number_of_whiteSpace) + 1;
@@ -56,10 +78,10 @@ class AllMonth{
         echo "</div>";
     }
 
-    public function mountMonth($number)
+    public function mountMonth($number, $id_calendar)
     {
+        $this->id_calendar = $id_calendar;
         $this->connectionDatabase = new ConnectionDatabase();
-
         $this->getJsonMonths();
         $this->monthName = $this->json_monthAll[$number]["name"];
         $this->monthStart = $this->json_monthAll[$number]["start"];

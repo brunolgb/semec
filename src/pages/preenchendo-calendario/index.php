@@ -7,7 +7,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../../assets/icon.png" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="../../style/estilo.css"> -->
     <link rel="stylesheet" href="../../style/estilo.css">
     <title>SEMEC - PREENCHIMENTO DE CALENDÁRIO</title>
 </head>
@@ -37,9 +36,9 @@
        $prefix_show_calendar_information = $show_calendar_information[0];
 
         //    verificando se o campo não esta vazio
-       $calendar_name = empty($prefix_show_calendar_information['calendar_name']) ? ' ------- ' : $prefix_show_calendar_information['calendar_name'];
-       $locality = empty($prefix_show_calendar_information['locality']) ? ' ------- ' : $prefix_show_calendar_information['locality'];
-       $school_year = empty($prefix_show_calendar_information['school_year']) ? ' ------- ' : $prefix_show_calendar_information['school_year'];
+       $calendar_name = $prefix_show_calendar_information['calendar_name'];
+       $locality = $prefix_show_calendar_information['locality'];
+       $school_year = $prefix_show_calendar_information['school_year'];
        ?>
        <div class="box-control-body">
             <div class="control-fill">
@@ -48,6 +47,7 @@
                     echo "<div>";
                         echo "Nome do calendário";
                         echo "<span>{$calendar_name}</span>";
+                        echo "<input type='hidden' calendar value='" . $_GET['calendar'] . "'>";
                     echo "</div>";
                     echo "<div>";
                         echo "Localidade";
@@ -63,9 +63,8 @@
                     <?php
                     $month = new AllMonth();
                     for ($i=0; $i < 12; $i++)
-                    // foreach ($json_monthAll as $linha)
                     {
-                        $month->mountMonth($i);
+                        $month->mountMonth($i, $_GET['calendar']);
                     }
                     ?>
                 </div>  

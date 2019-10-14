@@ -73,10 +73,6 @@ links.forEach(e => {
         });
     })
 })
-
-function getDataChoiseDay(){
-
-}
 function createChildChoiseDay(element)
 {
     const child = document.createElement(element.element);
@@ -90,11 +86,58 @@ function createChildChoiseDay(element)
 
     return child;
 }
+function replaceEvents(event)
+{
+    switch (event) {
+        case 'semana pedagogica':
+            return 'semana pedagógica'
+            break;
+        case 'atribuicao':
+            return 'atribuição'
+            break;
+        case 'ferias':
+            return 'férias'
+            break;
+        default:
+            return event;
+            break;
+    }
+}
+function addValue(element_to_add_content, content)
+{
+    const element_to_content = document.querySelector(element_to_add_content);
+    element_to_content.setAttribute('id', content.event)
+    const event = content.event;
+    const transformationEvent = event.replace('_', ' ');
+    element_to_content.innerHTML = replaceEvents(transformationEvent);
+}
+function getAttributesDay(day, calendar)
+{
+    const dateChoise = day.getAttribute('date');
+    fetch(`../../getAttributeDay.php?id_calendar=${calendar}&calendar_date=${dateChoise}`)
+        .then(e => e.json())
+        .then(e => {
+            verify = e.filter(e => {
+                if(e.event)
+                {
+                    return e;
+                }
+            });
+
+            if(verify.length)
+            {
+                verify.map( e => {
+                    addValue('.chosieDay_content', e);
+                })
+            }
+        })
+}
 
 function creatingParentChoise(day)
 {
     if(day.childNodes[1] == undefined)
     {
+        getAttributesDay(day,32);
         // descobrindo o tamanho da tela para organizar o right
         const fillBody = document.querySelector('.fill-body');
         const widthHorizont = fillBody.scrollWidth - day.offsetLeft;
@@ -172,12 +215,79 @@ function creatingParentChoise(day)
                 }
             ]
         })
+        const child_content = createChildChoiseDay({
+            element: "div",
+            attributes:
+            [
+                {
+                    name: "class",
+                    value: "chosieDay_content tam100"
+                }
+            ]
+        })
+        const child_addEvent = createChildChoiseDay({
+            element: "div",
+            attributes:
+            [
+                {
+                    name: "class",
+                    value: "addEvent tam100"
+                }
+            ]
+        })
+
+        // adicionando os filhos do addEvent com todos os eventos
+        fetch('../../data/events.json')
+            .then(events_to_transform => events_to_transform.json())
+            .then(events_transformated => {
+                const titleEventsAdd = createChildChoiseDay({
+                    element: "div",
+                    data: "Escolha o evento",
+                    attributes:
+                    [
+                        {
+                            name: "class",
+                            value: "tam100"
+                        }
+                    ]
+                })
+
+                child_addEvent.appendChild(titleEventsAdd);
+
+                events_transformated.map(element => {
+                    const value_element = element.nameReplace == undefined ? element.name : element.nameReplace;
+                    const childs = createChildChoiseDay({
+                        element: "div",
+                        data: value_element,
+                        attributes:
+                        [
+                            {
+                                name: "class",
+                                value: "tam100"
+                            },
+                            {
+                                name: "id",
+                                value: element.name
+                            },
+                            {
+                                name: "event",
+                                value: element.name
+                            }
+                        ]
+                    })
+                    child_addEvent.appendChild(childs);
+                    
+                })
+            })
+
 
         
         // childs de choiseEventDay
         choiseEventDay.appendChild(shapenerChoiseDay);
         choiseEventDay.appendChild(child_btnClose);
         choiseEventDay.appendChild(child_btnChoiseDay);
+        choiseEventDay.appendChild(child_content);
+        choiseEventDay.appendChild(child_addEvent);
         
         // parent
         day.appendChild(choiseEventDay);
@@ -197,6 +307,14 @@ function checkingChoiseSemana(daySemana, day)
         }
     });
 }
+function setEventDay(event, calendar_date)
+{
+    const id_calendar = document.querySelector("[calendar]");
+
+    fetch(`../../addEvent.php?id_calendar=${id_calendar.value}&event=${event}&calendar_date=${calendar_date}`)
+    .then(json_parse => json_parse.json())
+    .then(data => data.message)
+}
 const daySemana = document.querySelectorAll('[day]');
 daySemana.forEach(day => {
     day.style.cursor = 'pointer';
@@ -208,5 +326,39 @@ daySemana.forEach(day => {
         close_choiseEventDay.onclick = () => {
             close_choiseEventDay.parentNode.style.display = 'none';
         }
+
+        const add_choiseEventDay = document.querySelector('.newEventChoiseDay');
+        add_choiseEventDay.onclick = () => {
+            const addEvent = document.querySelector('.addEvent');
+            addEvent.classList.toggle('addEvent_mov');
+
+            const chosieDay_content = document.querySelector('.chosieDay_content');
+            chosieDay_content.classList.toggle('chosieDay_content_mov');
+        }
+
+        const listEvent = document.querySelectorAll('[event]');
+        listEvent.forEach(event => {
+            event.onclick = () => {
+                const attr_event = event.getAttribute('event');
+                const chosieDay_content = document.querySelector('.chosieDay_content');
+                const addEvent = document.querySelector('.addEvent');
+
+                
+                // replace element selected
+                chosieDay_content.innerHTML = event.innerHTML;
+
+                // insert ou update em database
+                const parent = event.parentNode.parentNode.parentNode;
+                const calendar_date = parent.getAttribute('date');
+                setEventDay(event.getAttribute('id'), calendar_date);
+
+                // trocando em tela
+                chosieDay_content.setAttribute('id',attr_event);
+                addEvent.classList.toggle('addEvent_mov');
+                chosieDay_content.classList.toggle('chosieDay_content_mov');
+                parent.setAttribute('id', event.getAttribute('id'));
+                
+            }
+        })
     })
 });

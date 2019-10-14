@@ -31,6 +31,7 @@
 				</div>
 				<button class='submit'>Enviar</button>
 			</form>
+			<a href="registration_person.php">Cadastrar-se</a>
 		</div>
 	</div>
 </body>

@@ -423,6 +423,7 @@ button{
 	background: var(--white);
 	color: var(--pattern);
 	border-color: var(--pattern);
+	outline: none;
 }
 .newEventChoiseDay:hover{
 	background: var(--pattern);
@@ -436,4 +437,56 @@ button{
 	position: absolute;
 	right: -10px;
 	top: -10px;
+}
+
+#letivo{background: var(--yellow);}
+#feriado{
+	background: var(--red);
+	color: var(--white);
+}
+#facultativo{
+	background: var(--light-blue)
+}
+#recesso_escolar{
+	background: var(--pattern);
+	color: var(--white);
+}
+#semana_pedagogica{
+	background: var(--pink);
+	color: var(--white)
+}
+#ferias{
+	background: var(--green)
+}
+#atribuicao{
+	background: var(--black);
+	color: var(--white)
+}
+#bimestre{
+	background: var(--white);
+	border: 1px solid var(--orange);
+	color: var(--yellow);
+}
+#sabado_domingo{
+	background: var(--light-black);
+}
+.chosieDay_content{
+	text-transform: uppercase;	
+}
+.chosieDay_content_mov{
+	display: none;
+}
+.addEvent{
+	height: 0;
+	overflow: hidden;
+	transition: .3s ease-in-out;
+}
+.addEvent div{
+	text-transform: uppercase;
+	margin: 5px 0px;
+	cursor: pointer;
+}
+.addEvent_mov{
+	height: auto;
+	overflow: visible;
 }
