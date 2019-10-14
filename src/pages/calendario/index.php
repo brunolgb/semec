@@ -30,7 +30,7 @@
                 <div class='tam40'>NOME</div>
                 <div class='tam10'>LETIVO</div>
                 <div class='tam10'>TERMINADO</div>
-                <div class='tam10'>MODIFICADO</div>
+                <div class='tam20'>MODIFICADO</div>
                 <div class='tam7'>AÇÃO</div>
             </div>
             <?php
@@ -51,7 +51,7 @@
                     echo "<div class='tam40'>{$linha['calendar_name']}</div>";
                     echo "<div class='tam10'>{$linha['school_year']}</div>";
                     echo "<div class='tam10'>{$linha['fineshed']}</div>";
-                    echo "<div class='tam10'>{$linha['modification_date']}</div>";
+                    echo "<div class='tam20'>{$linha['modification_date']}</div>";
                     echo "<div class='tam7' id='acao'>";
                         echo "<img src='../../assets/icon-search.png' title='Preencher Calendario' linkWindow='../preenchendo-calendario'>";
                         echo "<img src='../../assets/icon-update.png' title='Editar informações do calendario'>";

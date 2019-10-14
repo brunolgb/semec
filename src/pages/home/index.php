@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="shorcut icon" href="../../assets/icon.png">
 	<link rel="stylesheet" href="../../style/estilo.css">
+	<link rel="stylesheet" href="../../style/styleHome.css">
 	<script src="../../scripts/jv.js"></script>
 	<title>SEMEC</title>
 </head>
@@ -44,5 +45,6 @@
 			</li>
 		</ul>
 	</div>
+	<?php include_once('../footer/index.php')?>
 </body>
 </html>
