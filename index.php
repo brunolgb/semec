@@ -67,7 +67,7 @@
 						<input type="date" name='birth' id='birth' placeholder='Digite sua data de nascimento' value='1990-01-01'>
 					</div>
 				</section>
-				<button class='submit'>Enviar</button>
+				<button class='submit'>Entrar</button>
 			</form>
 		</div>
 		<a href='cadastrar' class='registration tam10' registration>Cadastrar-se</a>
