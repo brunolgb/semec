@@ -7,7 +7,7 @@ class ConnectionDatabase{
     public function __construct()
     {
         try {
-            $this->connection = new PDO("pgsql:host=localhost, dbname=","","");
+            $this->connection = new PDO("pgsql:host=localhost, dbname=semec","postgres","p21s11b96");
         } catch (PDOException $erro) {
              throw new Exception("Erro no banco de dados {$erro}", 1);
         }
