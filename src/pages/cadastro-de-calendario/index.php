@@ -32,7 +32,7 @@
                         </div>
                         <div class="fieldForm tam20">
                             <label for="schoolYear">Ano letivo</label>
-                            <input type="text" name='schoolYear' id='schoolYear' placeholder='Ex: 2019' maxlength='4'>
+                            <input type="text" name='schoolYear' id='schoolYear' value='2020' maxlength='4'>
                         </div>
                     </div>
 

@@ -1,6 +1,9 @@
 <?php
     include_once('../../verify_session.php');
     include_once('../fillCount.php');
+    include_once('../../class/LoadClass.php');
+    include_once("../../class/DateTools.php");
+    include_once("../../class/Pattern_br.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,9 +37,6 @@
                 <div class='tam7'>AÇÃO</div>
             </div>
             <?php
-
-            include_once('../../class/LoadClass.php');
-
             $list = new ConnectionDatabase();
             $listed = $list->find(
                 "SELECT * FROM calendar_information",
@@ -44,14 +44,23 @@
 
             counting($listed);
 
-            foreach($listed as $linha) { 
+            foreach($listed as $linha) {
+
+                // date replace
+                $DateTools = new DatesTools();
+                $date_final = $DateTools->convertPattern($linha['modification_date'], new Date_PatternBR());
+
+                // fineshed replace
+                $fineshed = $linha['fineshed'] == "n" ? "não" : "sim";
+
+                // show results
                 echo "<div class='TableBody'>";
                     echo "<div class='tam5'>{$linha['id']}</div>";
                     echo "<div class='tam30'>{$linha['locality']}</div>";
                     echo "<div class='tam40'>{$linha['calendar_name']}</div>";
                     echo "<div class='tam10'>{$linha['school_year']}</div>";
-                    echo "<div class='tam10'>{$linha['fineshed']}</div>";
-                    echo "<div class='tam20'>{$linha['modification_date']}</div>";
+                    echo "<div class='tam10'>{$fineshed}</div>";
+                    echo "<div class='tam20'>{$date_final}</div>";
                     echo "<div class='tam7' id='acao'>";
                         echo "<img src='../../assets/icon-search.png' title='Preencher Calendario' linkWindow='../preenchendo-calendario'>";
                         echo "<img src='../../assets/icon-update.png' title='Editar informações do calendario'>";
@@ -62,9 +71,6 @@
             ?>
         </div>
     </div>
-
-
-
    <script src='../../scripts/script.js'></script>
 </body>
 </html>

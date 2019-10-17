@@ -1,6 +1,6 @@
 <?php
 
 interface IPattern{
-    public function transform($date, $pattern);
+    public function date_replace($date);
 }
 ?>
