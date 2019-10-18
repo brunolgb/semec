@@ -12,7 +12,7 @@
                 <a href="../home">Página Inicial</a>
             </li>
             <li>
-                <a href="">Calendários</a>
+                <a href="../calendario">Calendários</a>
             </li>
             <li>
                 <a href="">Arquivo passivo</a>
@@ -21,7 +21,7 @@
                 <a href="">Transferencias</a>
             </li>
             <li>
-                <a href="">Perfil</a>
+                <a href="../perfil">Perfil</a>
             </li>
             <li>
                 <a href="../../../">Sair</a>

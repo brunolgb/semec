@@ -45,14 +45,12 @@
 				<section id="login">
 					<div class="box_field">
 						<label for="cpf" class='tam30'>
-							<img src="./src/assets/icon-cpf-login.png" alt="">
 							<span>CPF</span>
 						</label>
-						<input type="text" name='cpf' placeholder='Digite seu CPF' id='cpf' maxlength='14' autofocus required>
+						<input type="text" name='cpf' placeholder='000.000.000-00' id='cpf' maxlength='14' autofocus required>
 					</div>
 					<div class="box_field">
 						<label for="password_acess" class='tam30'>
-							<img src="./src/assets/icon-password-login.png" alt="" maxlength='50'>
 							<span>Senha</span>
 						</label>
 						<input type="password" name='password_acess' id='password_acess' placeholder='Digite sua senha' required>
@@ -61,14 +59,12 @@
 				<section class="registration-section">
 					<div class="box_field">
 						<label for="name_person" class='tam30'>
-							<img src="./src/assets/icon-user-login.png" alt="">
 							<span>Nome</span>
 						</label>
 						<input type="text" name='name_person' id='name_person' placeholder='Digite seu nome completo' maxlength='200'>
 					</div>
 					<div class="box_field">
 						<label for="birth" class='tam40'>
-							<img src="./src/assets/icon-birth-login.png" alt="" maxlength='50'>
 							<span>Nascimento</span>
 						</label>
 						<input type="date" name='birth' id='birth' placeholder='Digite sua data de nascimento' value='1990-01-01'>
