@@ -137,7 +137,8 @@ function creatingParentChoise(day)
 {
     if(day.childNodes[1] == undefined)
     {
-        getAttributesDay(day,32);
+        const calendar = document.querySelector("[calendar]");
+        getAttributesDay(day,calendar.value);
         // descobrindo o tamanho da tela para organizar o right
         const fillBody = document.querySelector('.fill-body');
         const widthHorizont = fillBody.scrollWidth - day.offsetLeft;

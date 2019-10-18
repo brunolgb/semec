@@ -25,10 +25,18 @@
         "nameReplace": "atribuição"
     },
     {
-        "name":"bimestre"
+        "name":"inicio_bimestre",
+        "nameReplace": "Início Bimestre"
+    },
+    {
+        "name":"termino_bimestre",
+        "nameReplace": "Término Bimestre"
     },
     {
         "name":"sabado_domingo",
         "nameReplace": "sabado/domingo"
+    },
+    {
+        "name":"vazio"
     }
 ]

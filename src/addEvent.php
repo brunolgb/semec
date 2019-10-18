@@ -16,7 +16,7 @@ if(isset($id_calendar) and isset($event) and isset($calendar_date))
         )
     );
 
-    if(count($searchRegistration))
+    if(count($searchRegistration) and $event != "vazio")
     {
         if($searchRegistration[0]['event'] != $event)
         {
@@ -33,7 +33,7 @@ if(isset($id_calendar) and isset($event) and isset($calendar_date))
             echo '{"message":"false"}';
         }
     }
-    else
+    else if(!count($searchRegistration) and $event != "vazio")
     {
         $modification_date = date("Y-m-d H:i:s");
         $registered_user = $_SESSION['id_user'];
@@ -46,6 +46,19 @@ if(isset($id_calendar) and isset($event) and isset($calendar_date))
         );
 
         echo $insertEvent;
+        
+    }
+    else if(count($searchRegistration) and $event == "vazio")
+    {
+        $comand = "DELETE FROM calendar WHERE id=:id"; 
+        $return = $events->delete(
+            $comand,
+            array(
+                "id" => $searchRegistration[0]['id']
+            )
+        );
+        echo $return;
+       
     }
 }
 

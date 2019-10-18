@@ -12,9 +12,9 @@ id SERIAL PRIMARY KEY,
 locality VARCHAR(50) NOT NULL,
 calendar_name VARCHAR(200) NOT NULL,
 school_year INT,
+fineshed VARCHAR(1) NOT NULL,
 modification_date TIMESTAMP,
-registered_user INT,
-CONSTRAINT calendar_information_person FOREIGN KEY(registered_user) REFERENCES person(id) ON DELETE CASCADE ON UPDATE CASCADE
+registered_user INT REFERENCES person(id)
 )
 
 CREATE TABLE calendar(
@@ -24,5 +24,6 @@ calendar_date DATE NOT NULL,
 event VARCHAR(200)  NOT NULL,
 modification_date TIMESTAMP NOT NULL,
 registered_user INT NOT NULL,
-CONSTRAINT calendar_person FOREIGN KEY(registered_user) REFERENCES person(id) ON DELETE CASCADE ON UPDATE CASCADE
+CONSTRAINT calendar_person FOREIGN KEY(registered_user) REFERENCES person(id) ON DELETE CASCADE,
+CONSTRAINT calendar_calendar_information FOREIGN KEY(id_calendar) REFERENCES calendar_information(id) ON DELETE CASCADE
 )

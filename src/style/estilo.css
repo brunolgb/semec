@@ -14,11 +14,11 @@
 }
 @font-face{
 	font-family: fontSecundary;
-	src: url("../fonts/AnjaliOldLipi.ttf");
+	src: url("../fonts/AnjaliOldLipi.ttf") local("../fonts/AnjaliOldLipi.ttf");
 }
 @font-face{
 	font-family: fontPattern;
-	src: url("../fonts/Arial.ttf");
+	src: url("../fonts/Arial.ttf") local("../fonts/Arial.ttf");
 }
 *{
 	display: block;
@@ -125,9 +125,10 @@ button{
 	display: flex;
 	margin-bottom: 3px;
 	border-bottom: 1px solid var(--light-black);
+	transition: 1s ease-in-out;
 }
-.box-control-body .TableBody:hover{ font-weight: bold; }
-.box-control-body .titleTableBody div, .box-control-body .TableBody div{text-align: center;}
+.box-control-body .TableBody:hover div{ color: var(--red) }
+.box-control-body .titleTableBody div, .box-control-body .TableBody div{text-align: center; transition: color .4s ease-in-out;}
 #acao{
 	display:flex;
 	flex-wrap: nowrap;
@@ -141,6 +142,7 @@ button{
 .tam7{width: 7%;}
 .tam10{width: 10%;}
 .tam20{width: 20%;}
+.tam25{width: 25%;}
 .tam30{width: 30%;}
 .tam40{width: 40%;}
 .tam50{width: 50%;}
@@ -380,10 +382,15 @@ button{
 	background: var(--black);
 	color: var(--white)
 }
-#bimestre{
+#inicio_bimestre{
 	background: var(--white);
 	border: 1px solid var(--orange);
 	color: var(--yellow);
+}
+#termino_bimestre{
+	background: var(--white);
+	border: 1px solid var(--pattern);
+	color: var(--pattern);
 }
 #sabado_domingo{
 	background: var(--light-black);

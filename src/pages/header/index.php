@@ -1,11 +1,6 @@
 <link rel="stylesheet" href="../../style/styleHeader.css">
   <header class='nav'>
-      <div class="userPerfil">
-        <figure>
-              <img src="../../assets/images-user/icon-user-smaller.png" alt="">
-        </figure>
-      </div>
-      <span>SEMEC</span>
+    <span>SEMEC</span>
     <nav>
         <div class="btnMenu">
             <div></div>
