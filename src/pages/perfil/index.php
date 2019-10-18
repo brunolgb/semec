@@ -2,22 +2,9 @@
     include_once('../../verify_session.php');
     include_once('../../class/LoadClass.php');
 
-    $message = $_GET["m"];
-	$div_message = null;
-	if(isset($message))
-	{
-		$spaceReplace_message = str_replace("%", " ",$message);
-		switch ($spaceReplace_message) {
-			case 'erro':
-				$message_final = "Aconteceu algum erro! Tente novamente.";
-				break;
-			case 'nada alterado':
-				$message_final = "Nada foi alterado!";
-				break;
-		}
-		$div_message = "<div class='erro'>{$message_final}</div>";
-	}
-
+    // verificando o erro
+    $message = new ErrorsForms();
+    $responseMsg = $message->getMsg($_GET["m"]);
 
     // database
     $connetion = new ConnectionDatabase();
@@ -41,7 +28,7 @@
 <body>
    <?php
     include_once('../header/index.php');
-    echo $div_message;
+    echo $responseMsg;
    ?>
 
    <div class="box-control">

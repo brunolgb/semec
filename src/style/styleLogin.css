@@ -41,17 +41,13 @@
 	margin-bottom: 21px;
 }
 .box-control-login .box_field label{
-	display: flex;
 	flex-wrap: nowrap;
 	height: 50px;
-	padding-right: 10px;
-	background:var(--light-pattern);
-}
-.box-control-login .box_field label span{
-	height: 100%;
-	text-align: left;
-	color: var(--white);
 	line-height: 50px;
+	background:var(--light-pattern);
+	color: var(--white);
+	text-align: center;
+	cursor: pointer;
 }
 .box-control-login .box_field input{
 	border: none;

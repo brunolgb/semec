@@ -30,24 +30,19 @@ VALUES (
 '{$storage[':finesh']}'
 )";
 
-// $comand = "INSERT INTO calendar_information (calendar_name, school_year, locality, modification_date, registered_user, fineshed)
-// VALUES ( 
-// :calendarName,
-// :schoolYear,
-// :localit,
-// :modification_dat,
-// :registered_use,
-// :finesh)";
-
 $return = $insert->insert(
     $comand,
     $storage
 );
 
-echo $return;
+$returnAction = json_decode($return, assoc);
 
-if($return)
+if($returnAction["message"])
 {
     header('Location: ./');
+}
+else
+{
+    header('Location: ./?m=erro');
 }
 ?>

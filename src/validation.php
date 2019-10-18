@@ -25,7 +25,7 @@ if(isset($_POST))
             header("Location: ./pages/home");
         }
         else{
-            header("Location: ../?m=user%or%password%invalid");
+            header("Location: ../?m=3");
         }
     }
     else
@@ -37,7 +37,7 @@ if(isset($_POST))
         ));
         if(count($select))
         {
-            header("Location: ../?m=cpf%registered");
+            header("Location: ../?m=2");
         }
         else{
             $name_person = $_POST["name_person"];
@@ -69,14 +69,18 @@ if(isset($_POST))
                 }
                 else
                 {
-                    header("Location: ../?m=erro");
+                    header("Location: ../?m=9");
                 }
             }
             else
             {
-                header("Location: ../?m=campos%obrigatorios");
+                header("Location: ../?m=1");
             }
         }
     }
+}
+else
+{
+    header("Location: ../?m=1");
 }
 ?>

@@ -124,11 +124,15 @@ button{
 	height: auto;
 	display: flex;
 	margin-bottom: 3px;
-	border-bottom: 1px solid var(--light-black);
-	transition: 1s ease-in-out;
 }
-.box-control-body .TableBody:hover div{ color: var(--red) }
-.box-control-body .titleTableBody div, .box-control-body .TableBody div{text-align: center; transition: color .4s ease-in-out;}
+.box-control-body .TableBody div{
+	transition: .15s ease-in-out;
+}
+.box-control-body .TableBody:hover div{
+	color: var(--red);
+	transform: scale(1.05);
+}
+.box-control-body .titleTableBody div, .box-control-body .TableBody div{text-align: center;}
 #acao{
 	display:flex;
 	flex-wrap: nowrap;

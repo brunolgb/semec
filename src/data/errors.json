@@ -1,0 +1,22 @@
+[
+    {
+        "codigo": 1,
+        "message": "Preencha todos os campos"
+    },
+    {
+        "codigo": 2,
+        "message": "Já existe registro para esse CPF"
+    },
+    {
+        "codigo": 3,
+        "message": "CPF ou senha inválidos!"
+    },
+    {
+        "codigo": 4,
+        "message": "Nenhum dado foi alterado!"
+    },
+    {
+        "codigo": 9,
+        "message": "Algo de errado aconteceu! Tente novamente"
+    }
+]
