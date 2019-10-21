@@ -1,8 +1,8 @@
 <?php
 	session_destroy();
-	include_once("src/class/ErrorsForms.php");
-
+	
 	// verificando o erro
+	include_once("src/class/ErrorsForms.php");
     $message = new ErrorsForms();
     $responseMsg = $message->getMsg($_GET["m"]);
 ?>

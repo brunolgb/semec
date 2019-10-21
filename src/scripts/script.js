@@ -38,8 +38,9 @@ choiseLocality.forEach(e => {
 const deleteRegist = document.querySelectorAll('[delete]');
 deleteRegist.forEach(e => {
     e.addEventListener('click', () => {
-        const id = e.getAttribute('idRegistro');
-        const tbl = e.getAttribute('tbl');
+        const parent = e.parentNode;
+        const id = parent.getAttribute('idRegistro');
+        const tbl = parent.getAttribute('tbl');
 
         fetch(`../../callDelete.php?id=${id}&tbl=${tbl}`)
             .then(e => e.json())
@@ -58,6 +59,17 @@ deleteRegist.forEach(e => {
     })
 })
 
+const updateRegist = document.querySelectorAll('[update]');
+updateRegist.forEach(e => {
+    e.addEventListener('click', () => {
+        const parent = e.parentNode;
+        const id = parent.getAttribute('idRegistro');
+        const tbl = parent.getAttribute('tbl');
+
+        window.location.href = `../cadastro-de-calendario/?id=${id}&tbl=${tbl}`;
+    })
+})
+
 const links = document.querySelectorAll('[linkWindow]');
 links.forEach(e => {
     e.addEventListener('click', () => {
@@ -65,7 +77,7 @@ links.forEach(e => {
         const parent = e.parentNode;
         const childParent = parent.childNodes;
         childParent.forEach(e => {
-            const id = e.getAttribute('idRegistro');
+            const id = parent.getAttribute('idRegistro');
             if(id != undefined)
             {
                 window.location.href = `${link}/?calendar=${id}`;
