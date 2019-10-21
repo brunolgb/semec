@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../../assets/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../../style/estilo.css">
+    <link rel="stylesheet" href="../../style/information_calendar.css">
     <title>SEMEC - PREENCHIMENTO DE CALENDÁRIO</title>
 </head>
 <body>
@@ -70,6 +71,32 @@
                 </div>  
             </div>
        </div>
+       <div class="informations_calendar">
+           <div>
+               <span>
+                   <?php
+                   echo $month->all_number_of_event("feriado");
+                   ?>
+               </span>
+               FERIADOS
+           </div>
+           <div>
+            <span>
+                <?php
+                   echo $month->all_number_of_event("letivo");
+                ?>
+            </span>
+               Dias letivos
+           </div>
+           <div>
+            <span>
+                <?php
+                   echo $month->all_number_of_event("facultativo");
+                ?>
+            </span>
+               Facultavivo
+           </div>
+        </div>
    </div>
 
 

@@ -1,5 +1,6 @@
 :root{
 	--background-transparente: rgba(0,97,108,0.6);
+	--transparentPattern: rgba(0,97,108,0.9);
 	--pattern: rgba(0,97,108,1);
 	--light-pattern: rgb(51,147,160);
 	--white: #fff;

@@ -1,0 +1,23 @@
+.informations_calendar{
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 30px;
+    background: var(--transparentPattern);
+    padding: 8px;
+}
+.informations_calendar *{
+    color: var(--white);
+    text-align: center;
+}
+.informations_calendar div{
+    display: flex;
+    height: 100%;
+    margin: 0px 10px;
+}
+.informations_calendar div span{
+    width: auto;
+    margin-right: 5px;
+    font-weight: bold;
+}
