@@ -4,7 +4,7 @@
 
     $id_update = $_GET["id"];
     $tbl_update = $_GET["tbl"];
-    if(!empty($id_update) and !empty($id_update))
+    if(!empty($id_update) and !empty($tbl_update))
     {
         $con = new ConnectionDatabase();
         $show = $con->find(
@@ -54,14 +54,16 @@
        <div class="box-control-body">
            <div class="form-pattern">
                <form action='./registration.php' method="post">
+                    <input type="hidden" name="update_id" value='<?php echo $id_update; ?>'>
+                    <input type="hidden" name="update_tbl" value='<?php echo $tbl_update; ?>'>
                    <div class="fieldControl">
                         <div class="fieldForm tam80">
-                            <label for="calendarName">Nome do Calendário</label>
-                            <input type="text" name='calendarName' id='calendarName' value="<?php echo $calendar_name; ?>" placeholder='Ex: Escolas urbanas' required>
+                            <label for="calendar_name">Nome do Calendário</label>
+                            <input type="text" name='calendar_name' id='calendar_name' value="<?php echo $calendar_name; ?>" placeholder='Ex: Escolas urbanas' required>
                         </div>
                         <div class="fieldForm tam20">
-                            <label for="schoolYear">Ano letivo</label>
-                            <input type="text" name='schoolYear' id='schoolYear' value="<?php echo $school_year; ?>" maxlength='4' class='tam20' required>
+                            <label for="school_year">Ano letivo</label>
+                            <input type="text" name='school_year' id='school_year' value="<?php echo $school_year; ?>" maxlength='4' class='tam20' required>
                         </div>
                     </div>
 
@@ -79,7 +81,7 @@
                             <img src="../../assets/icone-urbano.svg" alt="">
                             <span>Urbano</span>
                         </div>
-                        <input type="hidden" name="localit" value='' localityValue required>
+                        <input type="hidden" name="locality" value='<?php echo $locality; ?>' localityValue required>
 
                         <div class="tam100">
                             <button type="submit" class='submit'>Salvar</button>

@@ -44,13 +44,13 @@ if(!empty($storage))
             header('Location: ./');
         break;
         case false:
-            header('Location: ./?m=erro');
+            header('Location: ./?m=9');
         break;
     }
 
 }
 else
 {
-    header('Location: ./?m=nada%alterado');
+    header('Location: ./?m=4');
 }
 ?>
