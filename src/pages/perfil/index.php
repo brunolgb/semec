@@ -64,9 +64,7 @@
            </div>
        </div>
    </div>
-
-
-
+   <?php include_once("../footer/index.php"); ?>
    <script src='../../scripts/script.js'></script>
 </body>
 </html>

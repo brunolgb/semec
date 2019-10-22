@@ -328,6 +328,40 @@ function setEventDay(event, calendar_date)
     .then(json_parse => json_parse.json())
     .then(data => data.message)
 }
+function showTotalEventsSpecifc(event)
+{
+    const calendar = document.querySelector("[calendar]");
+    const url = `../../callAttributos.php?calendar=${calendar.value}&event=${event}`;
+    fetch(url)
+    .then(contentJson => contentJson.json())
+    .then(content => {
+        const school_years = document.querySelectorAll("[school_years]");
+        const totalLetivo = document.querySelector(`[total_${event}]`);
+
+        school_years.forEach((element, index) => {
+            element.innerHTML = content[index];
+        })
+
+        const totalEvent = content.reduce((total, counter) => {
+            return total + counter;
+        });
+
+        totalLetivo.innerHTML = totalEvent;
+    })
+}
+function showTotalEvents(events)
+{
+    const calendar = document.querySelector("[calendar]");
+    const url = `../../callAttributos.php?calendar=${calendar.value}&event=${events}`;
+    fetch(url)
+    .then(contentJson => contentJson.json())
+    .then(content => {
+        content.forEach(element => {
+            const totalSpeficic = document.querySelector(`[total_${element['name']}]`);
+            totalSpeficic.innerHTML = element["total"];
+        })
+    })
+}
 const daySemana = document.querySelectorAll('[day]');
 daySemana.forEach(day => {
     day.style.cursor = 'pointer';
@@ -364,6 +398,10 @@ daySemana.forEach(day => {
                 const parent = event.parentNode.parentNode.parentNode;
                 const calendar_date = parent.getAttribute('date');
                 setEventDay(event.getAttribute('id'), calendar_date);
+
+                // replace values total events
+                showTotalEventsSpecifc(attr_event);
+                showTotalEvents("feriado+letivo+facultativo");
 
                 // trocando em tela
                 chosieDay_content.setAttribute('id',attr_event);

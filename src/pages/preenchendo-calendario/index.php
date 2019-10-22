@@ -73,7 +73,7 @@
        </div>
        <div class="informations_calendar">
            <div>
-               <span>
+               <span total_feriado>
                    <?php
                    echo $month->all_number_of_event("feriado");
                    ?>
@@ -81,7 +81,7 @@
                FERIADOS
            </div>
            <div>
-            <span>
+            <span total_letivo>
                 <?php
                    echo $month->all_number_of_event("letivo");
                 ?>
@@ -89,18 +89,16 @@
                Dias letivos
            </div>
            <div>
-            <span>
+            <span total_facultativo>
                 <?php
                    echo $month->all_number_of_event("facultativo");
-                ?>
+                   ?>
             </span>
                Facultavivo
            </div>
         </div>
    </div>
-
-
-
-   <script src='../../scripts/script.js'></script>
+    <?php include_once("../footer/index.php"); ?>
+    <script src='../../scripts/script.js'></script>
 </body>
 </html>
