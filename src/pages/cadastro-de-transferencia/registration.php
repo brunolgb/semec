@@ -7,7 +7,7 @@ include_once('../../class/LoadClass.php');
 function searchEqual($con, $id)
 {
     $show = $con->find(
-        "SELECT * FROM calendar_information WHERE id=:update_id",
+        "SELECT * FROM school_transfer WHERE id=:update_id",
         array(
             ":update_id" => $id
             )
@@ -30,7 +30,6 @@ function mountQuery($POST, $resultShow)
     $user = $_SESSION['id_user'];
     $storage .= "modification_date='$currentDate',";
     $storage .= "registered_user='$user',";
-    $storage .= "fineshed='n'";
     return $storage;
 }
 
@@ -38,7 +37,7 @@ function actionUpdate($con, $query, $id_update)
 {
     if(substr($query, 0, 12) != "modification")
     {
-        $comand = "UPDATE calendar_information SET $query WHERE id='$id_update'";
+        $comand = "UPDATE school_transfer SET $query WHERE id='$id_update'";
 
         $return = $con->update(
             $comand,
@@ -76,21 +75,23 @@ if(isset($_POST) and !empty($_POST))
             }
         }
 
-        $storage["modification_dat"] = Date('Y-m-d H:i:s');
-        $storage["registered_use"] = $_SESSION['id_user'];
-        $storage["finesh"] = 'n';
+        $storage["modification_date"] = Date('Y-m-d H:i:s');
+        $storage["registered_user"] = $_SESSION['id_user'];
 
 
 
-        $comand = "INSERT INTO calendar_information (calendar_name, school_year, locality, modification_date, registered_user, fineshed)
+        $comand = "INSERT INTO school_transfer (school, student, birth, mother, father, last_year_of_study, modification_date, registered_user)
         VALUES ( 
-        '{$storage['calendar_name']}',
-        '{$storage['school_year']}',
-        '{$storage['locality']}',
-        '{$storage['modification_dat']}',
-        '{$storage['registered_use']}',
-        '{$storage['finesh']}'
+        '{$storage['school']}',
+        '{$storage['student']}',
+        '{$storage['birth']}',
+        '{$storage['mother']}',
+        '{$storage['father']}',
+        '{$storage['last_year_of_study']}',
+        '{$storage['modification_date']}',
+        '{$storage['registered_user']}'
         )";
+        echo $comand;
 
         $return = $con->insert(
             $comand,
@@ -101,15 +102,15 @@ if(isset($_POST) and !empty($_POST))
     $returnAction = json_decode($return, assoc);
     if($returnAction["message"] == 1)
     {
-        header('Location: ../calendario');
+        header('Location: ./');
     }
     else if($returnAction["message"] == 4)
     {
-        header("Location: ./?id=$id_update&tbl=calendar_information&m=4");
+        header("Location: ./?id=$id_update&tbl=passive_file&m=4");
     }
     else
     {
-        header("Location: ./?id=$id_update&tbl=calendar_information&m=9");
+        header("Location: ./?id=$id_update&tbl=passive_file&m=9");
     }
 }
 ?>

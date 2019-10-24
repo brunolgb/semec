@@ -14,20 +14,17 @@
 	--orange: rgb(202, 121, 0);
 }
 @font-face{
-	font-family: fontSecundary;
-	src: url("../fonts/AnjaliOldLipi.ttf") local("../fonts/AnjaliOldLipi.ttf");
-}
-@font-face{
-	font-family: fontPattern;
-	src: url("../fonts/Arial.ttf") local("../fonts/Arial.ttf");
+	font-family: pattern;
+	src: url("../fonts/Arial.ttf");
 }
 *{
 	display: block;
 	margin: 0;
 	padding: 0;
-	font-family: fontPattern;
+	font-family: pattern, Helvetica, sans-serif;
 	box-sizing: border-box;
 	color: var(--black);
+	text-transform: uppercase;
 }
 head, script{
 	display: none;
@@ -49,6 +46,7 @@ input, select{
 	padding: 10px;
 	font-size: 14px;
 	outline: none;
+	background: var(--white);
 	color: var(--preto);
 	border: 1px solid var(--light-black);
 	transition: border .3s ease-in-out;
@@ -173,7 +171,7 @@ button{
 	margin-left: 2px;
 }
 .fieldForm label{padding: 5px 0px;}
-.fieldForm input{width: 100%}
+.fieldForm input, .fieldForm select{width: 100%; height: 40px;}
 .locatityCalendar{
 	width: 70%;
 	height: auto;

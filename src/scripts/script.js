@@ -65,8 +65,9 @@ updateRegist.forEach(e => {
         const parent = e.parentNode;
         const id = parent.getAttribute('idRegistro');
         const tbl = parent.getAttribute('tbl');
+        const page = parent.getAttribute('page');
 
-        window.location.href = `../cadastro-de-calendario/?id=${id}&tbl=${tbl}`;
+        window.location.href = `../${page}/?id=${id}&tbl=${tbl}`;
     })
 })
 

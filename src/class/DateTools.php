@@ -1,8 +1,15 @@
 <?php
 class DatesTools{
-    public function convertPattern($date, IPattern $Pattern)
+    public function convertPattern($type, $date, IPattern $Pattern)
     {
-        return $Pattern->date_replace($date);
+        if($type == "timestamp")
+        {
+            return $Pattern->timestamp_replace($date);
+        }
+        else
+        {
+            return $Pattern->date_replace($date);
+        }
     }
 }
 ?>

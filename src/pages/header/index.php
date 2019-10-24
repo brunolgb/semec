@@ -15,10 +15,10 @@
                 <a href="../calendario">Calendários</a>
             </li>
             <li>
-                <a href="">Arquivo passivo</a>
+                <a href="../arquivo-passivo">Arquivo passivo</a>
             </li>
             <li>
-                <a href="">Transferencias</a>
+                <a href="../transferencia">Transferencias</a>
             </li>
             <li>
                 <a href="../perfil">Perfil</a>

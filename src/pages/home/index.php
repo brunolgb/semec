@@ -32,13 +32,13 @@
 				</a>
 			</li>
 			<li>
-				<a href="validacao.php?pagina=arquivo-passivo">
+				<a href="../arquivo-passivo">
 					<img src="../../assets/icone-passivo.png">
 					Arquivo Passivo
 				</a>
 			</li>
 			<li>
-				<a href="validacao.php?pagina=transferencias">
+				<a href="../transferencia">
 					<img src="../../assets/icone-transferencia.png">
 					Transferências
 				</a>

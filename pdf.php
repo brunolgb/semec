@@ -1,9 +1,6 @@
 <?php
+session_start();
 
-use Dompdf\Dompdf;
-
-require __DIR__ . "/vendor/autoload.php";
-
-$dompdf = new Dompdf();
+var_dump($_SESSION);
 
 ?>
