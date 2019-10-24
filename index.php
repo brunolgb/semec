@@ -41,14 +41,14 @@
 						<input type="text" name='name_person' id='name_person' placeholder='Digite seu nome completo' maxlength='200' title='Nome'>
 					</div>
 					<div class="box_field">
-						<label for="birth" class='tam30'>Nascimento</label>
+						<label for="birth" class='tam40'>Nascimento</label>
 						<input type="date" name='birth' id='birth' placeholder='Digite sua data de nascimento' value='1990-01-01' title='Nascimento'>
 					</div>
 				</section>
 				<button class='submit'>Entrar</button>
 			</form>
 		</div>
-		<a href='cadastrar' class='registration tam10' registration>Cadastrar-se</a>
+		<a href='cadastrar' class='registration tam20' registration>Cadastrar-se</a>
 	</div>
 	<script src='./src/scripts/script_login.js'></script>
 </body>

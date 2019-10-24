@@ -34,6 +34,11 @@ body{
 	font-size: 14px;
 	overflow-x: hidden;
 }
+@media(min-width: 1400px){
+	body{
+		font-size: 1.2em;
+	}
+}
 ul li{list-style: none;}
 a{text-decoration: none;}
 figure{
@@ -68,12 +73,13 @@ button{
 }
 .box-control{
 	width: 100vw;
-	min-height: 500px;
+	min-height: 80vh;
 	height: auto;
 	padding-top: 90px; 
 }
 .box-control-header{
-	width: 1260px;
+	width: 90vw;
+	min-width: 1260px;
 	display: flex;
 	flex-wrap: nowrap;
 	padding: 3px 5px;
@@ -102,8 +108,8 @@ button{
 	font-size: 14px;
 }
 .box-control-body{
-	width: 100%;
-	max-width: 1260px;
+	width: 90vw;
+	min-width: 1260px;
 	min-height: 200px;
 	height: auto;
 	padding: 0px 10px;

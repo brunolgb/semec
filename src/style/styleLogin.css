@@ -5,9 +5,10 @@
 	top: 0px;
 	left: 0;
 	z-index: 9998;
-	background: url('../assets/large_facada.jpeg') no-repeat;
-	background-size: 100% 100%;
-	filter:blur(10px);
+	background: var(--transparentPattern);
+	/* background: url('../assets/large_facada.jpeg') no-repeat; */
+	/* background-size: 100% 100%; */
+	/* filter:blur(10px); */
 }
 @media(max-width: 1000px){
 	.background{
@@ -20,7 +21,7 @@
 	height: 100vh;
 	position: absolute;
 	z-index: 9999;
-	background: var(--background-transparente);
+	/* background: var(--background-transparente); */
 }
 .box-control-login{
 	width: 400px;
@@ -44,7 +45,7 @@
 	flex-wrap: nowrap;
 	height: 50px;
 	line-height: 50px;
-	background:var(--light-pattern);
+	background: var(--light-pattern);
 	color: var(--white);
 	text-align: center;
 	cursor: pointer;
@@ -60,16 +61,38 @@
 	outline: none;
 }
 .registration-section{
-	display: none;
+	overflow-y: hidden;
+	height: 0px;
+	opacity: 0;
+	transform: translateX(60px);
+	transition: .3s ease-in-out;
 }
 .registration-section-mov{
-	display: block;
+	animation: registrationMov .3s ease-in-out forwards;
+}
+@keyframes registrationMov{
+	0%{
+		opacity: 0;
+		overflow-y: hidden;
+	}
+	50%{
+		height: auto;
+		overflow-y: visible;
+	}
+	70%{
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100%{
+		height: auto;
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 .registration{
 	height: 30px;
 	line-height: 30px;
 	color: var(--white);
-	border-bottom: 1px solid var(--white);
 	text-align: center;
 	margin: auto;
 	margin-top: 20px;

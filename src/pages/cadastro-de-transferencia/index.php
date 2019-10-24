@@ -70,18 +70,20 @@
                             <label for="school">Escola que estudou</label>
                             <select name="school" id="school" required>
                                 <option disable selected>-- Escolha --</option>
-                                <option value="E. M. Carlos Pompermayer">E. M. Carlos Pompermayer</option>
-                                <option value="E. M. João Medeiros Calmon">E. M. João Medeiros Calmon</option>
-                                <option value="E. M. Nossa Senhora das Graças">E. M. Nossa Senhora das Graças</option>
-                                <option value="E. M. Professor Vitor Quintiliano">E. M. Professor Vitor Quintiliano</option>
-                                <option value="E. M. Darcy Ribeiro">E. M. Darcy Ribeiro</option>
-                                <option value="E. M. E. I. Sonho Encantado">E. M. E. I. Sonho Encantado</option>
-                                <option value="E. M. E. I. Cantinho Feliz">E. M. E. I. Cantinho Feliz</option>
-                                <option value="E. M. Indigena Vale do Guaporé">E. M. Indigena Vale do Guaporé</option>
-                                <option value="E. M. Tiago Elias Fernandes">E. M. Tiago Elias Fernandes</option>
-                                <option value="E. M. Indigena Nambiquara">E. M. Indigena Nambikuara</option>
-                                <option value="E. M. Erico Verissimo">E. M. Erico Verissimo</option>
+                                <option value="E. M. Carlos Pompermayer">Carlos Pompermayer</option>
+                                <option value="E. M. João Medeiros Calmon">João Medeiros Calmon</option>
+                                <option value="E. M. Nossa Senhora das Graças">Nossa Senhora das Graças</option>
+                                <option value="E. M. Professor Vitor Quintiliano">Professor Vitor Quintiliano</option>
+                                <option value="E. M. Darcy Ribeiro">Darcy Ribeiro</option>
+                                <option value="E. M. E. I. Sonho Encantado">Sonho Encantado</option>
+                                <option value="E. M. E. I. Cantinho Feliz">Cantinho Feliz</option>
+                                <option value="E. M. Indigena Vale do Guaporé">Indigena Vale do Guaporé</option>
+                                <option value="E. M. Tiago Elias Fernandes">Tiago Elias Fernandes</option>
+                                <option value="E. M. Indigena Nambiquara">Indigena Nambikuara</option>
+                                <option value="E. M. Erico Verissimo">Erico Verissimo</option>
                                 <option value="E. M. Professora Helena Matiuzzo Felix">E. M. Professora Helena Matiuzzo Felix</option>
+                                <option value="E. M. Castelo Branco">Castelo Branco</option>
+                                <option value="E. M. Bom Jardim">Bom Jardim</option>
                             </select>
                         </div>
                         <div class="fieldForm tam20">

@@ -43,6 +43,18 @@
                 null);
 
             counting($listed);
+            
+            // verify lenght text
+            $TextLenght = new TextLenght();
+            $listed = array_map(function ($arrayText){
+                return array_map(function ($e){
+
+                    $TextLenght = $GLOBALS["TextLenght"];
+                    return $TextLenght->replace_text($e);
+
+                }, $arrayText);
+
+            }, $listed);
 
             foreach($listed as $linha) {
 
