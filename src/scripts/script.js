@@ -337,17 +337,10 @@ function showTotalEventsSpecifc(event)
     .then(contentJson => contentJson.json())
     .then(content => {
         const school_years = document.querySelectorAll("[school_years]");
-        const totalLetivo = document.querySelector(`[total_${event}]`);
 
         school_years.forEach((element, index) => {
             element.innerHTML = content[index];
         })
-
-        const totalEvent = content.reduce((total, counter) => {
-            return total + counter;
-        });
-
-        totalLetivo.innerHTML = totalEvent;
     })
 }
 function showTotalEvents(events)
@@ -401,7 +394,7 @@ daySemana.forEach(day => {
                 setEventDay(event.getAttribute('id'), calendar_date);
 
                 // replace values total events
-                showTotalEventsSpecifc(attr_event);
+                showTotalEventsSpecifc('letivo');
                 showTotalEvents("feriado+letivo+facultativo");
 
                 // trocando em tela

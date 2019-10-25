@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../../assets/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../../style/estilo.css">
-    <title>SEMEC - TRANSFERÊNCIA</title>
+    <title>SEMEC - ESCOLAS</title>
 </head>
 <body>
    <?php include_once('../header/index.php'); ?>
@@ -20,10 +20,10 @@
         <div class="box-control-header">
             <div class="title">
                 <span>PÁGINA INICIAL /</span>
-                <span>TRANSFERÊNCIA</span>
+                <span>ESCOLAS</span>
             </div>
             <div class="registration">
-                <a href="../cadastro-de-transferencia" class='btnPattern'>Cadastrar</a>
+                <a href="../cadastro-de-escola" class='btnPattern'>Cadastrar</a>
             </div>
         </div>
         <div class="box-control-body">
@@ -34,13 +34,12 @@
                 </div>
             </form>
             <div class="titleTableBody">
-                <div class='tam5'>ID</div>
-                <div class='tam30'>ESCOLA QUE ESTUDOU</div>
-                <div class='tam30'>NOME ALUNO</div>
-                <div class='tam20'>NASCIMENTO</div>
-                <div class='tam30'>MÃE</div>
-                <div class='tam20'>ANO LETIVO</div>
-                <div class='tam7'>AÇÃO</div>
+                <div class='tam5 align-center'>ID</div>
+                <div class='tam50'>NOME DA ESCOLA</div>
+                <div class='tam20'>TIPO DE ENSINO</div>
+                <div class='tam20'>LOCALIDADE</div>
+                <div class='tam20 align-center'>DATA DE MODIFICAÇÃO</div>
+                <div class='tam7 align-center'>AÇÃO</div>
             </div>
             <?php
             if(empty($_GET["filter"]))
@@ -50,17 +49,11 @@
             else{
                 $get_filter = strtoupper($_GET["filter"]);
                 $filter = "WHERE
-                    student LIKE '%$get_filter%' OR
-                    mother LIKE '%$get_filter%' OR
-                    father LIKE '%$get_filter%' OR
-                    mother LIKE '%$get_filter%' OR
-                    name_school LIKE '%$get_filter%' OR
-                    school_type LIKE '%$get_filter%' OR
-                    school_locality LIKE '%$get_filter%'";
+                    bane_school LIKE '%$get_filter%'";
             }
             $conn = new ConnectionDatabase();
             $listed = $conn->find(
-                "SELECT * FROM view_school_transfer $filter ORDER BY id",
+                "SELECT * FROM school $filter",
                 null);
 
                 
@@ -81,20 +74,19 @@
 
                 // date replace
                 $DateTools = new DatesTools();
-                $birth = $DateTools->convertPattern("date", $linha['birth'], new Date_PatternBR());
+                $birth = $DateTools->convertPattern("timestamp", $linha['modification_date'], new Date_PatternBR());
                 
                 // fineshed replace
                 $fineshed = $linha['fineshed'] == "n" ? "não" : "sim";
 
                 // show results
                 echo "<div class='TableBody'>";
-                echo "<div class='tam5'>{$linha['id']}</div>";
-                echo "<div class='tam30 align-left'>{$linha['school_type']} {$linha['name_school']}</div>";
-                    echo "<div class='tam30 align-left'>{$linha['student']}</div>";
-                    echo "<div class='tam20'>{$birth}</div>";
-                    echo "<div class='tam30 align-left'>{$linha['mother']}</div>";
-                    echo "<div class='tam20'>{$linha['last_year_of_study']}</div>";
-                    echo "<div class='tam7' id='acao' idRegistro='{$linha["id"]}' tbl='school_transfer' page='cadastro-de-transferencia'>";
+                    echo "<div class='tam5 align-center'>{$linha['id']}</div>";
+                    echo "<div class='tam50'>{$linha['name_school']}</div>";
+                    echo "<div class='tam20'>{$linha['school_type']}</div>";
+                    echo "<div class='tam20'>{$linha['school_locality']}</div>";
+                    echo "<div class='tam20 align-center'>{$linha['modification_date']}</div>";
+                    echo "<div class='tam7 align-center' id='acao' idRegistro='{$linha["id"]}' tbl='school_transfer' page='cadastro-de-transferencia'>";
                         echo "<img src='../../assets/icon-search.png' update title='Editar informações'>";
                         echo "<img src='../../assets/icon-delete.png' delete title='Deletar registro'>";
                     echo "</div>";

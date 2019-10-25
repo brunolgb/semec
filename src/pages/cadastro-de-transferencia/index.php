@@ -69,21 +69,23 @@
                         <div class="fieldForm tam80">
                             <label for="school">Escola que estudou</label>
                             <select name="school" id="school" required>
-                                <option disable selected>-- Escolha --</option>
-                                <option value="E. M. Carlos Pompermayer">Carlos Pompermayer</option>
-                                <option value="E. M. João Medeiros Calmon">João Medeiros Calmon</option>
-                                <option value="E. M. Nossa Senhora das Graças">Nossa Senhora das Graças</option>
-                                <option value="E. M. Professor Vitor Quintiliano">Professor Vitor Quintiliano</option>
-                                <option value="E. M. Darcy Ribeiro">Darcy Ribeiro</option>
-                                <option value="E. M. E. I. Sonho Encantado">Sonho Encantado</option>
-                                <option value="E. M. E. I. Cantinho Feliz">Cantinho Feliz</option>
-                                <option value="E. M. Indigena Vale do Guaporé">Indigena Vale do Guaporé</option>
-                                <option value="E. M. Tiago Elias Fernandes">Tiago Elias Fernandes</option>
-                                <option value="E. M. Indigena Nambiquara">Indigena Nambikuara</option>
-                                <option value="E. M. Erico Verissimo">Erico Verissimo</option>
-                                <option value="E. M. Professora Helena Matiuzzo Felix">E. M. Professora Helena Matiuzzo Felix</option>
-                                <option value="E. M. Castelo Branco">Castelo Branco</option>
-                                <option value="E. M. Bom Jardim">Bom Jardim</option>
+                                <?php
+                                $con = new ConnectionDatabase();
+                                $listSchool = $con->find(
+                                    "SELECT id, name_school, school_type FROM school",
+                                    null
+                                );
+
+                                echo "<option disable>-- Escolha --</option>";
+                                foreach ($listSchool as $line)
+                                {
+                                    $id_school = $line['id'];
+                                    $name_complete = $line['school_type'] . " " . $line['name_school'];;
+                                    $selected = $school == $id_school ? "selected" : "";
+                                    
+                                    echo "<option value='$id_school' $selected>$name_complete</option>";   
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="fieldForm tam20">

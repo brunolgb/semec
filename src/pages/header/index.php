@@ -8,6 +8,9 @@
             <div></div>
         </div>
         <ul class='menu'>
+            <li class='showName'>
+                <?php echo strstr($_SESSION["name_person"]," ", true) . "..."; ?>
+            </li>
             <li>
                 <a href="../home">Página Inicial</a>
             </li>
@@ -19,6 +22,9 @@
             </li>
             <li>
                 <a href="../transferencia">Transferencias</a>
+            </li>
+            <li>
+                <a href="../escola">Escolas</a>
             </li>
             <li>
                 <a href="../perfil">Perfil</a>

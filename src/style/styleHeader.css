@@ -73,3 +73,9 @@
 	opacity: 1;
 	transform: translateX(0px);
 }
+.menu .showName{
+	color: var(--yellow);
+	height: 40px;
+	border-bottom: 1px solid var(--yellow);
+	margin-bottom: 20px;
+}

@@ -27,6 +27,12 @@
             </div>
         </div>
         <div class="box-control-body">
+            <form method="get">
+                <div class="filter">
+                    <input type="text" name="filter" id="filter" class='tam40' placeholder='Digite algo para filtrar'>
+                    <button class="submit">Filtrar</button>
+                </div>
+            </form>
             <div class="titleTableBody">
                 <div class='tam5'>ID</div>
                 <div class='tam30'>ESCOLA QUE ESTUDOU</div>
@@ -37,6 +43,19 @@
                 <div class='tam7'>AÇÃO</div>
             </div>
             <?php
+            if(empty($_GET["filter"]))
+            {
+                $filter = "";
+            }
+            else{
+                $get_filter = strtoupper($_GET["filter"]);
+                $filter = "WHERE
+                    school LIKE '%$get_filter%' OR
+                    student LIKE '%$get_filter%' OR
+                    mother LIKE '%$get_filter%' OR
+                    father LIKE '%$get_filter%'";
+            }
+
             $list = new ConnectionDatabase();
             $listed = $list->find(
                 "SELECT * FROM passive_file",
@@ -78,6 +97,11 @@
                     echo "</div>";
                 echo "</div>";
             }
+            $total_registro = count($listed);
+            echo "<div class='total_results'>";
+                echo $total_registro;
+                echo " Registros";
+            echo "</div>";
             ?>
         </div>
     </div>

@@ -7,7 +7,7 @@ include_once('../../class/LoadClass.php');
 function searchEqual($con, $id)
 {
     $show = $con->find(
-        "SELECT * FROM school_transfer WHERE id=:update_id",
+        "SELECT * FROM school WHERE id=:update_id",
         array(
             ":update_id" => $id
             )
@@ -29,7 +29,7 @@ function mountQuery($POST, $resultShow)
     $currentDate = Date('Y-m-d H:i:s');
     $user = $_SESSION['id_user'];
     $storage .= "modification_date='$currentDate',";
-    $storage .= "registered_user='$user'";
+    $storage .= "registered_user='$user',";
     return $storage;
 }
 
@@ -37,8 +37,7 @@ function actionUpdate($con, $query, $id_update)
 {
     if(substr($query, 0, 12) != "modification")
     {
-        $comand = "UPDATE school_transfer SET $query WHERE id='$id_update'";
-        echo $comand;
+        $comand = "UPDATE school SET $query WHERE id='$id_update'";
 
         $return = $con->update(
             $comand,
@@ -81,17 +80,15 @@ if(isset($_POST) and !empty($_POST))
 
 
 
-        $comand = "INSERT INTO school_transfer (school, student, birth, mother, father, last_year_of_study, modification_date, registered_user)
+        $comand = "INSERT INTO school (name_school, school_type, school_locality, modification_date, registered_user)
         VALUES ( 
-        '{$storage['school']}',
-        '{$storage['student']}',
-        '{$storage['birth']}',
-        '{$storage['mother']}',
-        '{$storage['father']}',
-        '{$storage['last_year_of_study']}',
+        '{$storage['name_school']}',
+        '{$storage['school_type']}',
+        '{$storage['school_locality']}',
         '{$storage['modification_date']}',
         '{$storage['registered_user']}'
         )";
+        echo $comand;
 
         $return = $con->insert(
             $comand,

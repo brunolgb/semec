@@ -138,9 +138,9 @@ class AllMonth{
             $this->mountDay();
 
             echo "<div class='month_information'>";
-                echo "<div class='tam70'>";
+                echo "<div class='tam60'>";
                 echo "</div>";
-                echo "<div class='tam30'>";
+                echo "<div class='tam40'>";
                     echo "<span school_years>";
                         $monthNumber = $this->numberMonth < 10 ? '0' . $this->numberMonth : $this->numberMonth;
                         $dayNumber = $this->number_of_days < 10 ? '0' . $this->number_of_days : $this->number_of_days;

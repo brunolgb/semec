@@ -1,14 +1,13 @@
 .background{
 	width: 100vw;
 	height: 100vh;
+	min-height: 600px;
 	position: absolute;
 	top: 0px;
 	left: 0;
 	z-index: 9998;
-	background: var(--transparentPattern);
-	/* background: url('../assets/large_facada.jpeg') no-repeat; */
-	/* background-size: 100% 100%; */
-	/* filter:blur(10px); */
+	background: var(--pattern) url('../assets/large_facada.png') no-repeat;
+	background-size: 100% 100%;
 }
 @media(max-width: 1000px){
 	.background{
@@ -19,9 +18,10 @@
 .box-login{
 	width: 100vw;
 	height: 100vh;
+	min-height: 600px;
 	position: absolute;
 	z-index: 9999;
-	/* background: var(--background-transparente); */
+	background: var(--background-transparente);
 }
 .box-control-login{
 	width: 400px;
