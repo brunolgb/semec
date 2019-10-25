@@ -29,7 +29,7 @@
         <div class="box-control-body">
             <form method="get">
             <div class="filter">
-                    <input type="text" name="filter" id="filter" class='tam40' placeholder='Digite algo para filtrar'>
+                    <input type="text" name="filter" id="filter" class='tam40' placeholder='Digite algo para filtrar' value='<?php echo $_GET["filter"]?>'>
                     <button class="submit">Filtrar</button>
                 </div>
             </form>
