@@ -33,15 +33,6 @@
                     <button class="submit">Filtrar</button>
                 </div>
             </form>
-            <div class="titleTableBody">
-                <div class='tam5'>ID</div>
-                <div class='tam30'>ESCOLA QUE ESTUDOU</div>
-                <div class='tam30'>NOME ALUNO</div>
-                <div class='tam20'>NASCIMENTO</div>
-                <div class='tam30'>MÃE</div>
-                <div class='tam20'>ANO LETIVO</div>
-                <div class='tam7'>AÇÃO</div>
-            </div>
             <?php
             if(empty($_GET["filter"]))
             {
@@ -60,21 +51,35 @@
             }
             $conn = new ConnectionDatabase();
             $listed = $conn->find(
-                "SELECT * FROM view_school_transfer $filter ORDER BY id",
+                "SELECT * FROM view_school_transfer $filter ORDER BY student",
                 null);
 
-                
                 // verify lenght text
                 $TextLenght = new TextLenght();
                 $listed = array_map(function ($arrayText){
-                return array_map(function ($e){
-                    
+                    return array_map(function ($e){                    
                     $TextLenght = $GLOBALS["TextLenght"];
                     return $TextLenght->replace_text($e);
-
-                }, $arrayText);
-
+                    }, $arrayText);
             }, $listed);
+
+            $total_registro = count($listed);
+            echo "<div class='total_results'>";
+                echo $total_registro;
+                echo " Registros";
+            echo "</div>";
+
+            ?>
+            <div class="titleTableBody">
+                <div class='tam5'>ID</div>
+                <div class='tam30'>ESCOLA QUE ESTUDOU</div>
+                <div class='tam30'>NOME ALUNO</div>
+                <div class='tam20'>NASCIMENTO</div>
+                <div class='tam30'>MÃE</div>
+                <div class='tam20'>ANO LETIVO</div>
+                <div class='tam7'>AÇÃO</div>
+            </div>
+            <?php
             counting($listed);
 
             foreach($listed as $linha) {
@@ -100,12 +105,6 @@
                     echo "</div>";
                 echo "</div>";
             }
-
-            $total_registro = count($listed);
-            echo "<div class='total_results'>";
-                echo $total_registro;
-                echo " Registros";
-            echo "</div>";
             ?>
         </div>
     </div>

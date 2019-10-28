@@ -54,14 +54,13 @@
             $conn = new ConnectionDatabase();
             $listed = $conn->find(
                 "SELECT * FROM school $filter",
-                null);
+                null
+            );
 
-                
-                // verify lenght text
-                $TextLenght = new TextLenght();
-                $listed = array_map(function ($arrayText){
+            // verify lenght text
+            $TextLenght = new TextLenght();
+            $listed = array_map(function ($arrayText){
                 return array_map(function ($e){
-                    
                     $TextLenght = $GLOBALS["TextLenght"];
                     return $TextLenght->replace_text($e);
 
@@ -86,7 +85,7 @@
                     echo "<div class='tam20'>{$linha['school_type']}</div>";
                     echo "<div class='tam20'>{$linha['school_locality']}</div>";
                     echo "<div class='tam20 align-center'>{$linha['modification_date']}</div>";
-                    echo "<div class='tam7 align-center' id='acao' idRegistro='{$linha["id"]}' tbl='school_transfer' page='cadastro-de-transferencia'>";
+                    echo "<div class='tam7 align-center' id='acao' idRegistro='{$linha["id"]}' tbl='school' page='cadastro-de-escola'>";
                         echo "<img src='../../assets/icon-search.png' update title='Editar informações'>";
                         echo "<img src='../../assets/icon-delete.png' delete title='Deletar registro'>";
                     echo "</div>";

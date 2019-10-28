@@ -34,11 +34,6 @@ body{
 	font-size: 14px;
 	overflow-x: hidden;
 }
-@media(min-width: 1400px){
-	body{
-		font-size: 1.1em;
-	}
-}
 ul li{list-style: none;}
 a{text-decoration: none;}
 figure{
@@ -491,5 +486,27 @@ footer{
 	100%{
 		opacity: 0;
 		top: 40px;
+	}
+}
+@media(min-width: 1400px){
+	body{
+		font-size: 1.1em;
+	}
+}
+@media(max-width: 1000px){
+	body *{
+		font-size: 1.15em;
+	}
+	input, select, button{
+		border-radius: 0.2em;
+		padding: 30px;
+		border: 1px solid var(--light-black);
+	}
+	.submit{
+		min-width: 350px;
+		height: 100px;
+		line-height: 35px;
+		border-radius: 10px;
+		margin: 30px auto;
 	}
 }

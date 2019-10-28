@@ -48,7 +48,7 @@
 				<button class='submit'>Entrar</button>
 			</form>
 		</div>
-		<a href='cadastrar' class='registration tam20' registration>Cadastrar-se</a>
+		<a href='cadastrar' class='registration' registration>Cadastrar-se</a>
 	</div>
 	<script src='./src/scripts/script_login.js'></script>
 </body>
