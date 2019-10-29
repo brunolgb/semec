@@ -1,0 +1,66 @@
+<?php
+include_once('LoadClass.php');
+class Attributes{
+    private $id_calendar;
+    private $connectionDatabase;
+
+    function __construct($id_calendar)
+    {
+        $this->id_calendar = $id_calendar;
+        $this->connectionDatabase = new ConnectionDatabase();
+    }
+
+    private function getMonth()
+    {
+        $contentMonth = file_get_contents("data/month.json");
+        return json_decode($contentMonth, true);
+    }
+    public function number_of_event($event, $between)
+    {
+        $caseSchoolYears = $event == "letivo" ?
+        "OR event LIKE '%bimestre' AND calendar_date BETWEEN $between"
+        : "";
+        $findEvent = $this->connectionDatabase->find(
+            "SELECT count(event) as total FROM calendar WHERE event=:event AND calendar_date BETWEEN $between $caseSchoolYears AND id_calendar='{$this->id_calendar}'",
+            array(":event"=>$event)
+        );
+        [$numero] = $findEvent;
+        return $numero["total"];
+    }
+    
+    public function number_of_event_for_month($event){
+        $array_between = array_map(function ($e){
+            $event = $GLOBALS['event'];
+            $month = $e["number"] < 10 ? "0" . $e["number"] : $e["number"];
+            $between = "'2020-{$month}-01' AND '2020-{$month}-{$e["number_of_days"]}'";
+    
+            $caseSchoolYears = $event == "letivo" ?
+            "OR event LIKE '%bimestre' AND calendar_date BETWEEN $between  AND id_calendar='{$this->id_calendar}'"
+            : "";
+            $findEvent = $this->connectionDatabase->find(
+                "SELECT count(event) as total FROM calendar WHERE event=:event AND calendar_date BETWEEN $between  AND id_calendar='{$this->id_calendar}' $caseSchoolYears",
+                array(":event"=>$event)
+            );
+    
+            [$numero] = $findEvent;
+            return $numero["total"];
+        }, $this->getMonth());
+    
+        return $array_between;
+    }
+    
+    public function number_of_event_for_year($event){
+        $caseSchoolYears = $event == "letivo" ?
+            "OR event LIKE '%bimestre' AND id_calendar='{$this->id_calendar}'"
+            : null;
+            
+        $findEvent = $this->connectionDatabase->find(
+            "SELECT count(event) as total FROM calendar WHERE event=:event AND id_calendar='{$this->id_calendar}' $caseSchoolYears",
+            array(":event"=>$event)
+        );
+    
+        [$numero] = $findEvent;
+        return $numero["total"];
+    }
+}
+?>

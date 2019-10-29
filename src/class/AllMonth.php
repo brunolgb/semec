@@ -17,16 +17,6 @@ class AllMonth{
         $contentMonth = file_get_contents('../../data/month.json');
         $this->json_monthAll = json_decode($contentMonth, true);
     }
-    public function all_number_of_event($event)
-    {
-        $findEvent = $this->connectionDatabase->find(
-            "SELECT count(event) as total FROM calendar WHERE event=:event AND id_calendar='{$this->id_calendar}'",
-            array(":event"=>$event)
-        );
-        [$numero] = $findEvent;
-
-        return $numero["total"];
-    }
     public function number_of_event($event, $between)
     {
         $caseSchoolYears = $event == "letivo" ?
@@ -145,10 +135,6 @@ class AllMonth{
                 echo "</div>";
                 echo "<div class='tam40'>";
                     echo "<span school_years>";
-                        $monthNumber = $this->numberMonth < 10 ? '0' . $this->numberMonth : $this->numberMonth;
-                        $dayNumber = $this->number_of_days < 10 ? '0' . $this->number_of_days : $this->number_of_days;
-                        $between = "'2020-{$monthNumber}-01' AND '2020-{$monthNumber}-{$dayNumber}'";
-                        echo $this->number_of_event("letivo", $between);
                     echo "</span>";
                     echo " Dias Letivos";
                 echo "</div>";

@@ -72,10 +72,13 @@
             </div>
        </div>
        <div class="informations_calendar">
+            <?php
+            $attributes = new Attributes($id_calendar);
+            ?>
            <div>
                <span total_feriado>
                    <?php
-                   echo $month->all_number_of_event("feriado");
+                   echo $attributes->number_of_event_for_year("feriado");
                    ?>
                </span>
                FERIADOS
@@ -83,7 +86,7 @@
            <div>
             <span total_letivo>
                 <?php
-                   echo $month->all_number_of_event("letivo");
+                   echo $attributes->number_of_event_for_year("letivo");
                 ?>
             </span>
                Dias letivos
@@ -91,19 +94,21 @@
            <div>
             <span total_facultativo>
                 <?php
-                   echo $month->all_number_of_event("facultativo");
+                   echo $attributes->number_of_event_for_year("facultativo");
                    ?>
             </span>
                Facultavivo
            </div>
            <?php
-            echo "<button class='imprimir' calendar-id={$_GET["calendar"]}>";
+            echo "<a class='imprimir' href='../impressao/?calendar={$id_calendar}' target='_blank' calendar-id={$_GET["calendar"]}>";
             echo "Imprimir";
-            echo "</button>";
+            echo "</a>";
             ?>
         </div>
    </div>
     <?php include_once("../footer/index.php"); ?>
     <script src='../../scripts/script.js'></script>
+    <script src='../../scripts/script_creatorMonth.js'></script>
+    <script src='../../scripts/script_clickEvent.js'></script>
 </body>
 </html>
