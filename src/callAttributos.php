@@ -20,8 +20,11 @@ function show(){
         $connectionDatabase = $GLOBALS["connectionDatabase"];
         $event = $GLOBALS["event"];
 
+        $caseSchoolYears = $event == "letivo" ?
+        "OR event LIKE '%bimestre' AND calendar_date BETWEEN $between  AND id_calendar='{$id_calendar}'"
+        : "";
         $findEvent = $connectionDatabase->find(
-            "SELECT count(event) as total FROM calendar WHERE event=:event AND id_calendar='{$id_calendar}' AND calendar_date BETWEEN $between",
+            "SELECT count(event) as total FROM calendar WHERE event=:event AND calendar_date BETWEEN $between  AND id_calendar='{$id_calendar}' $caseSchoolYears",
             array(":event"=>$event)
         );
 
@@ -35,9 +38,12 @@ function show(){
 function totalEvents($event){
     $id_calendar = $GLOBALS["id_calendar"];
     $connectionDatabase = $GLOBALS["connectionDatabase"];
+    $caseSchoolYears = $event == "letivo" ?
+        "OR event LIKE '%bimestre' AND id_calendar='{$id_calendar}'"
+        : null;
 
     $findEvent = $connectionDatabase->find(
-        "SELECT count(event) as total FROM calendar WHERE event=:event AND id_calendar='{$id_calendar}'",
+        "SELECT count(event) as total FROM calendar WHERE event=:event AND id_calendar='{$id_calendar}' $caseSchoolYears",
         array(":event"=>$event)
     );
 
@@ -52,13 +58,12 @@ if(isset($_GET) and !empty($_GET))
     if(strpos($event, " "))
     {
         $events = explode(" ", $event);
-        $total_specific_of_events = array_map(function ($e){
+        $response = array_map(function ($e){
             return array(
                 "name" => $e,
                 "total" => totalEvents($e)
             );
         }, $events);
-        $response = $total_specific_of_events;
     }
     else
     {

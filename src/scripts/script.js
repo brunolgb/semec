@@ -407,3 +407,6 @@ daySemana.forEach(day => {
         })
     })
 });
+
+showTotalEventsSpecifc('letivo');
+showTotalEvents("feriado+letivo+facultativo");

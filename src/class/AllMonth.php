@@ -29,8 +29,11 @@ class AllMonth{
     }
     public function number_of_event($event, $between)
     {
+        $caseSchoolYears = $event == "letivo" ?
+        "OR event LIKE '%bimestre' AND calendar_date BETWEEN $between"
+        : "";
         $findEvent = $this->connectionDatabase->find(
-            "SELECT count(event) as total FROM calendar WHERE event=:event AND id_calendar='{$this->id_calendar}' AND calendar_date BETWEEN $between",
+            "SELECT count(event) as total FROM calendar WHERE event=:event AND calendar_date BETWEEN $between $caseSchoolYears AND id_calendar='{$this->id_calendar}'",
             array(":event"=>$event)
         );
         [$numero] = $findEvent;

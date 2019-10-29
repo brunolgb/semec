@@ -96,6 +96,11 @@
             </span>
                Facultavivo
            </div>
+           <?php
+            echo "<button class='imprimir' calendar-id={$_GET["calendar"]}>";
+            echo "Imprimir";
+            echo "</button>";
+            ?>
         </div>
    </div>
     <?php include_once("../footer/index.php"); ?>
