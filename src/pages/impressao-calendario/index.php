@@ -76,7 +76,7 @@
             </div>  
         </div>
         <div class="footerPrint tam100">
-            <div class="tam30">
+            <div id='legend'>
                 <?php
                 $json_events = file_get_contents("../../data/events.json");
                 $events = json_decode($json_events, true);
@@ -93,7 +93,7 @@
                 }
                 ?>
             </div>
-            <div class="informationMain tam70">
+            <div class="informationMain tam80">
                 <?php   
                 $inicio_bimestre = $cone->find(
                     "SELECT calendar_date as data FROM calendar WHERE event LIKE 'inicio%bimestre' AND id_calendar='{$id_calendar}' ORDER BY calendar_date",
@@ -104,29 +104,42 @@
                     null
                 );
                 echo "<div class='bimestre'>";
+                    echo "<div class='legend_bimestre tam100'>";
+                        echo "<div>";
+                            echo "<span>I.B</span> INÍCIO DE BIMESTRE";
+                        echo "</div>";
+                        echo "<div>";
+                            echo "<span>T.B</span> TÉRMINO DE BIMESTRE";
+                        echo "</div>";
+                    echo "</div>";
 
                 // date replace
                 $DateTools = new DatesTools();
+                $attributes = new Attributes($id_calendar);
                 
                 for ($i=0; $i < 4; $i++)
                 {
                     $bimestre = $i + 1;
-                    $start = $inicio_bimestre[$i]["data"];
-                    $previous = $termino_bimestre[$i]["data"];
+                    $inicio = $inicio_bimestre[$i]["data"];
+                    $termino = $termino_bimestre[$i]["data"];
 
-                    $start = !empty($start) ? $DateTools->convertPattern("date", $start, new Date_PatternBR()) : "----";
-                    $previous = !empty($previous) ? $DateTools->convertPattern("date", $previous, new Date_PatternBR()) : "----";
+                    $start = !empty($inicio) ? $DateTools->convertPattern("date", $inicio, new Date_PatternBR()) : "----";
+                    $previous = !empty($termino) ? $DateTools->convertPattern("date", $termino, new Date_PatternBR()) : "----";
 
-                    echo "<div>";
-                    echo "{$bimestre}º Bimestre";
-                    echo "<span>{$start} / {$previous}</span>";
+                    $between = "'$inicio' AND '$termino'";
+
+                    $total_letivos = $attributes->number_of_event("letivo", $between);
+
+                    echo "<div id='controll_info'>";
+                        echo "{$bimestre}º Bimestre";
+                        echo "<span>Dias letivos {$total_letivos}</span>";
+                        echo "<span>{$start} a {$previous}</span>";
                     echo "</div>";
                 }
                 echo "</div>";
                 ?>
                 <div class="defultInformation">
                     <?php
-                    $attributes = new Attributes($id_calendar);
                     $event = array(
                         array("event"=> "letivo", "text" => "dias letivos"),
                         array("event"=> "feriado", "text" => "feriados"),

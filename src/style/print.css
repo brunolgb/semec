@@ -80,6 +80,9 @@ body{
     width: 98%;
     margin: auto;
 }
+.footerPrint div#legend{
+    width: 200px;
+}
 .colors{
     display: flex;
     height: 10px;
@@ -95,23 +98,43 @@ body{
 }
 .informationMain{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
 }
 .bimestre{
-    width: 45%;
+    width: 65%;
 }
-.bimestre div{
+.bimestre #controll_info{
     display: flex;
-    padding: 3px 0px;
+    margin-top: 3px;
 }
-.bimestre div span{
-    margin-left: 5px;
+.bimestre .legend_bimestre{
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    color: var(--orange);
+    border-bottom: 1px solid #eee;
+}
+.bimestre .legend_bimestre div{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.bimestre .legend_bimestre span{
+    width: 25px;
+    font-weight: bold;
+}
+.bimestre #controll_info span{
+    margin-left: 10px;
+    color: var(--black);
+    font-weight: bold;
+}
+.bimestre #controll_info span:nth-child(1){
+    font-weight: bold;
+    width: 30%;
     color: var(--pattern);
 }
 .defultInformation{
-    width: 55%;
+    width: 40%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -121,11 +144,12 @@ body{
     border-left: 1px solid #ddd;
 }
 .defultInformation div{
-    display: flex;
+    text-align: center;
     width: 100%;
 }
 .defultInformation div span{
     margin-left: 5px;
+    font-size: 1.2em;
     color: var(--pattern)
 }
 
