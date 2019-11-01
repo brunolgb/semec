@@ -159,9 +159,9 @@
     </div>
     <script src='../../scripts/script_creatorMonth.js'></script>
     <script>
-        // setTimeout(() => {
-        //     window.print()
-        // }, 1000);
+        setTimeout(() => {
+            window.print()
+        }, 1000);
     </script>
 </body>
 </html>
