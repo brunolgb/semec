@@ -37,6 +37,7 @@ daySemana.forEach(day => {
 
                 // replace values total events
                 showTotalEventsSpecifc('letivo');
+                showBimestre("bimestre");
                 showTotalEvents("feriado+letivo+facultativo");
 
                 // trocando em tela

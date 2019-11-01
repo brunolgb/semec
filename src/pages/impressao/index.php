@@ -1,12 +1,13 @@
 <?php
     session_start();
+    $id_calendar = $_GET["calendar"];
     include_once('../../class/LoadClass.php');
 
 
     $cone = new ConnectionDatabase();
     $show_calendar_information = $cone->find(
         "SELECT id, calendar_name, locality, school_year FROM calendar_information WHERE id=:id",
-        array(":id" => $_GET["calendar"])
+        array(":id" => $id_calendar)
     );
     $list = $show_calendar_information[0];
 ?>
@@ -26,7 +27,7 @@
 </head>
 <body>
     <?php
-        echo "<input type='hidden' calendar value='" . $_GET['calendar'] . "'>";
+        echo "<input type='hidden' calendar value='" . $id_calendar . "'>";
     ?>
     <div class="controllerPrint">
         <header class='print-header tam100'>
@@ -68,7 +69,7 @@
                 $month = new AllMonth();
                 for ($i=0; $i < 12; $i++)
                 {
-                    $month->mountMonth($i, $_GET['calendar']);
+                    $month->mountMonth($i, $id_calendar);
                 }
                 ?>
             </div>  
@@ -77,7 +78,7 @@
             <div class="printLegendColor tam30">
                 <?php
                 $json_events = file_get_contents("../../data/events.json");
-                $events = json_decode($json_events, assoc);
+                $events = json_decode($json_events, true);
                 foreach ($events as $line)
                 {
                     if($line["name"] != "vazio")
@@ -96,7 +97,7 @@
                     $bimestres = $cone->find(
                         "SELECT event, calendar_date FROM calendar WHERE event LIKE '%bimestre' AND id_calendar=:id ORDER BY calendar_date",
                         array(
-                            ":id" => $_GET["calendar"]
+                            ":id" => $id_calendar
                         )
                     );
 
@@ -127,6 +128,10 @@
         </div>
     </div>
     <script src='../../scripts/script_creatorMonth.js'></script>
-    <!-- <script>window.print()</script> -->
+    <script>
+        setTimeout(() => {
+            window.print()
+        }, 1000);
+    </script>
 </body>
 </html>

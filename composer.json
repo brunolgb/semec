@@ -1,5 +1,15 @@
 {
+    "name": "brunolgb/semec",
+    "description": "Gerador de pdf",
+    "type": "project",
+    "authors": [
+        {
+            "name": "brunolgb",
+            "email": "brunodscolado@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
     "require": {
-        "dompdf/dompdf": "^0.8.3"
+        "mpdf/mpdf": "^8.0"
     }
 }

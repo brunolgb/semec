@@ -90,7 +90,7 @@
                         </div>
                         <div class="fieldForm tam20">
                             <label for="last_year_of_study">Ano letivo</label>
-                            <input type="text" name='last_year_of_study' id='last_year_of_study' value="<?php echo $last_year_of_study; ?>" maxlength='4' class='tam20' required>
+                            <input type="number" name='last_year_of_study' id='last_year_of_study' value="<?php echo isset($last_year_of_study) ? $last_year_of_study : date('Y'); ?>" maxlength='4' class='tam20' required>
                         </div>
                     </div>
                     <div class="fieldControl">
@@ -102,7 +102,7 @@
                     <div class="fieldControl">
                         <div class="fieldForm tam100">
                             <label for="father">Nome do pai</label>
-                            <input type="text" name='father' id='father' value="<?php echo $father; ?>" maxlength='255' required>
+                            <input type="text" name='father' id='father' value="<?php echo $father; ?>" mask-year maxlength='255' required>
                         </div>
                     </div>
                     <div class="tam100">
@@ -114,5 +114,6 @@
    </div>
    <?php include_once("../footer/index.php"); ?>
    <script src='../../scripts/script.js'></script>
+   <script src="../../scripts/mask.js"></script>
 </body>
 </html>

@@ -131,10 +131,10 @@ class AllMonth{
             $this->mountDay();
 
             echo "<div class='month_information'>";
-                echo "<div class='tam60'>";
+                echo "<div class='tam60' bimestre>";
                 echo "</div>";
                 echo "<div class='tam40'>";
-                    echo "<span school_years>";
+                    echo "<span letivo>";
                     echo "</span>";
                     echo " Dias Letivos";
                 echo "</div>";

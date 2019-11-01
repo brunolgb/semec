@@ -249,10 +249,9 @@ function showTotalEventsSpecifc(event)
     fetch(url)
     .then(contentJson => contentJson.json())
     .then(content => {
-        const school_years = document.querySelectorAll("[school_years]");
-
+        const school_years = document.querySelectorAll(`[${event}]`);
         school_years.forEach((element, index) => {
-            element.innerHTML = content[index];
+            element.innerHTML = content[index]["total"];
         })
     })
 }
@@ -269,6 +268,46 @@ function showTotalEvents(events)
         })
     })
 }
+function showBimestre(event)
+{
+    const calendar = document.querySelector("[calendar]");
+    const url = `../../callBimestre.php?calendar=${calendar.value}&event=%${event}`;
+    fetch(url)
+    .then(contentJson => contentJson.json())
+    .then(content => {
+        const bimestre_element = document.querySelectorAll(`[${event}]`);
+        content.forEach((element, index) => {
+            if(element.length)
+            {
+                const results = element.map((days_events) => {
+                    let return_days = null;
+                    switch (days_events["event"]) {
+                        case "inicio_bimestre":
+                            return_days = "I. B."
+                            break;
+                        default:
+                            return_days = "T. B."
+                            break;
+                    }
+
+                    const date_event = new Date(days_events["data"])
+                    return `<span>${return_days} - ${date_event.getUTCDate()}</span>`;
+                })
+                bimestre_element[index].innerHTML = setBimestre(results);
+            }
+            else{   
+                bimestre_element[index].innerHTML = "";
+            }
+        })
+    })
+}
+function setBimestre(result)
+{
+    return result.reduce((accumulator, value) => {
+        return accumulator + value;
+    })
+}
 
 showTotalEventsSpecifc('letivo');
+showBimestre("bimestre");
 showTotalEvents("feriado+letivo+facultativo");

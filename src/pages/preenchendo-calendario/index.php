@@ -26,6 +26,7 @@
        </div>
        <?php
        $id_calendar = $_GET['calendar'];
+       $_SESSION["id_calendar"] = $id_calendar;
        
        $cone = new ConnectionDatabase();
        $show_calendar_information = $cone->find(

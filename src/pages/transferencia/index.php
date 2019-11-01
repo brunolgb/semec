@@ -3,7 +3,6 @@
     include_once('../fillCount.php');
     include_once('../../class/LoadClass.php');
     include_once("../../class/DateTools.php");
-    include_once("../../class/Pattern_br.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

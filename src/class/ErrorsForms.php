@@ -6,7 +6,7 @@ class ErrorsForms{
     {
         $json_errors = file_exists("../../data/errors.json") ? "../../data/errors.json": "src/data/errors.json";
         $content_erros = file_get_contents($json_errors);
-        $transform = json_decode($content_erros, assoc);
+        $transform = json_decode($content_erros, true);
         if(!empty($erro))
         {
             foreach ($transform as $line)

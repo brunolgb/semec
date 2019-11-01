@@ -315,8 +315,20 @@ button{
 	height: 30px;
 	line-height: 30px;
 }
-.month_information div {font-size: 0.95em;}
+.month_information div {font-size: 0.95em; height: 100%;}
 .month_information div span{display: inline; font-size: 0.95em;}
+.month_information div[bimestre]{
+	display: flex;
+}
+.month_information div[bimestre] span{
+	display: block;
+	background: var(--pattern);
+	color: var(--white);
+	margin: auto 3px;
+	padding: 0 5px;
+	height: 90%;
+	border-radius: 3px;
+}
 .choise-event-day{
 	width: 300px;
 	height: auto;

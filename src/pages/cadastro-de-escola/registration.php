@@ -96,7 +96,7 @@ if(isset($_POST) and !empty($_POST))
         );
     }
 
-    $returnAction = json_decode($return, assoc);
+    $returnAction = json_decode($return, true);
     if($returnAction["message"] == 1)
     {
         header('Location: ./');
