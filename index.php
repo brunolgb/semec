@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	session_destroy();
 	
 	// verificando o erro

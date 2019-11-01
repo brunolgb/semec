@@ -69,47 +69,54 @@
                         $month->mountMonth($i, $_GET['calendar']);
                     }
                     ?>
-                </div>  
+                </div> 
             </div>
-       </div>
-       <div class="informations_calendar">
+        </div>
+        <div class="informations_calendar">
             <?php
             $attributes = new Attributes($id_calendar);
             ?>
-           <div>
-               <span total_feriado>
-                   <?php
-                   echo $attributes->number_of_event_for_year("feriado");
-                   ?>
-               </span>
-               FERIADOS
-           </div>
-           <div>
-            <span total_letivo>
+            <div>
+                <span total_feriado>
+                    <?php
+                    echo $attributes->number_of_event_for_year("feriado");
+                    ?>
+                </span>
+                FERIADOS
+            </div>
+            <div>
+                <span total_letivo>
+                    <?php
+                    echo $attributes->number_of_event_for_year("letivo");
+                    ?>
+                </span>
+                Dias letivos
+            </div>
+            <div>
+                <span total_facultativo>
+                    <?php
+                    echo $attributes->number_of_event_for_year("facultativo");
+                    ?>
+                </span>
+                Facultavivo
+            </div>
+            <aside id="action_for_calendar" class="tam70">
                 <?php
-                   echo $attributes->number_of_event_for_year("letivo");
+                echo "<button class='field-pattern' import>";
+                echo "Importar";
+                echo "</button>";
+
+                echo "<a class='field-pattern' href='../impressao-calendario/?calendar={$id_calendar}' target='_blank' calendar-id={$_GET["calendar"]}>";
+                echo "Imprimir";
+                echo "</a>";
                 ?>
-            </span>
-               Dias letivos
-           </div>
-           <div>
-            <span total_facultativo>
-                <?php
-                   echo $attributes->number_of_event_for_year("facultativo");
-                   ?>
-            </span>
-               Facultavivo
-           </div>
-           <?php
-            echo "<a class='imprimir' href='../impressao-calendario/?calendar={$id_calendar}' target='_blank' calendar-id={$_GET["calendar"]}>";
-            echo "Imprimir";
-            echo "</a>";
-            ?>
+            </aside>
         </div>
    </div>
     <?php include_once("../footer/index.php"); ?>
     <script src='../../scripts/script.js'></script>
     <script src='../../scripts/script_creatorMonth.js'></script>
     <script src='../../scripts/script_clickEvent.js'></script>
+    <script src='../../scripts/creatorImport.js'></script>
 </body>
 </html>
