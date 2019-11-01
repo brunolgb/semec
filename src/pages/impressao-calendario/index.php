@@ -2,6 +2,7 @@
     session_start();
     $id_calendar = $_GET["calendar"];
     include_once('../../class/LoadClass.php');
+    include_once('../../class/DateTools.php');
 
 
     $cone = new ConnectionDatabase();
@@ -75,7 +76,7 @@
             </div>  
         </div>
         <div class="footerPrint tam100">
-            <div class="printLegendColor tam30">
+            <div class="tam30">
                 <?php
                 $json_events = file_get_contents("../../data/events.json");
                 $events = json_decode($json_events, true);
@@ -92,46 +93,62 @@
                 }
                 ?>
             </div>
-            <div class="informationMain">
-                <?php
-                    $bimestres = $cone->find(
-                        "SELECT event, calendar_date FROM calendar WHERE event LIKE '%bimestre' AND id_calendar=:id ORDER BY calendar_date",
-                        array(
-                            ":id" => $id_calendar
-                        )
-                    );
+            <div class="informationMain tam70">
+                <?php   
+                $inicio_bimestre = $cone->find(
+                    "SELECT calendar_date as data FROM calendar WHERE event LIKE 'inicio%bimestre' AND id_calendar='{$id_calendar}' ORDER BY calendar_date",
+                    null
+                );
+                $termino_bimestre = $cone->find(
+                    "SELECT calendar_date as data FROM calendar WHERE event LIKE 'termino%bimestre' AND id_calendar='{$id_calendar}' ORDER BY calendar_date",
+                    null
+                );
+                echo "<div class='bimestre'>";
 
-                    $cont = 0;
-                    for($i=1; $i <= count($bimestres); $i++)
-                    {
-                        switch($bimestres)
-                        {
-                            case 1:
-                            echo "<div>";
-                                echo "<span>";
-                                    echo $i . "º Bimestre";
-                                echo "</span>";
-                            echo "</div>";
-                            break;
-                        case 2:
-                            echo $bimestres[$cont]["calendar_date"];
-                            $cont++;
-                            break;
-                        case 3:
-                            echo $bimestres[$cont]["calendar_date"];
-                            $cont++;
-                            break;
-                        }
-                    }
+                // date replace
+                $DateTools = new DatesTools();
+                
+                for ($i=0; $i < 4; $i++)
+                {
+                    $bimestre = $i + 1;
+                    $start = $inicio_bimestre[$i]["data"];
+                    $previous = $termino_bimestre[$i]["data"];
+
+                    $start = !empty($start) ? $DateTools->convertPattern("date", $start, new Date_PatternBR()) : "----";
+                    $previous = !empty($previous) ? $DateTools->convertPattern("date", $previous, new Date_PatternBR()) : "----";
+
+                    echo "<div>";
+                    echo "{$bimestre}º Bimestre";
+                    echo "<span>{$start} / {$previous}</span>";
+                    echo "</div>";
+                }
+                echo "</div>";
                 ?>
+                <div class="defultInformation">
+                    <?php
+                    $attributes = new Attributes($id_calendar);
+                    $event = array(
+                        array("event"=> "letivo", "text" => "dias letivos"),
+                        array("event"=> "feriado", "text" => "feriados"),
+                        array("event"=> "facultativo", "text" => "facultativos")
+                    );
+                    foreach ($event as $line_event)
+                    {
+                        echo "<div>";
+                            echo "Total de " . $line_event["text"];
+                            echo "<span>{$attributes->number_of_event_for_year($line_event['event'])}</span>";
+                        echo "</div>";
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
     <script src='../../scripts/script_creatorMonth.js'></script>
     <script>
-        setTimeout(() => {
-            window.print()
-        }, 1000);
+        // setTimeout(() => {
+        //     window.print()
+        // }, 1000);
     </script>
 </body>
 </html>

@@ -101,7 +101,7 @@
                Facultavivo
            </div>
            <?php
-            echo "<a class='imprimir' href='../impressao/?calendar={$id_calendar}' target='_blank' calendar-id={$_GET["calendar"]}>";
+            echo "<a class='imprimir' href='../impressao-calendario/?calendar={$id_calendar}' target='_blank' calendar-id={$_GET["calendar"]}>";
             echo "Imprimir";
             echo "</a>";
             ?>
