@@ -1,9 +1,6 @@
 <?php
 session_start();
-
 include_once('../../class/LoadClass.php');
-
-
 function searchEqual($con, $id)
 {
     $show = $con->find(
@@ -29,7 +26,7 @@ function mountQuery($POST, $resultShow)
     $currentDate = Date('Y-m-d H:i:s');
     $user = $_SESSION['id_user'];
     $storage .= "modification_date='$currentDate',";
-    $storage .= "registered_user='$user',";
+    $storage .= "registered_user='$user'";
     return $storage;
 }
 
@@ -80,13 +77,18 @@ if(isset($_POST) and !empty($_POST))
 
 
 
-        $comand = "INSERT INTO school (name_school, school_type, school_locality, modification_date, registered_user)
+        $comand = "INSERT INTO school (name_school, school_type, school_locality, modification_date, registered_user,cep,logradouro,bairro,cidade,uf)
         VALUES ( 
         '{$storage['name_school']}',
         '{$storage['school_type']}',
         '{$storage['school_locality']}',
         '{$storage['modification_date']}',
-        '{$storage['registered_user']}'
+        '{$storage['registered_user']}',
+        '{$storage['cep']}',
+        '{$storage['logradouro']}',
+        '{$storage['bairro']}',
+        '{$storage['cidade']}',
+        '{$storage['uf']}'
         )";
         echo $comand;
 

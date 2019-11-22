@@ -34,9 +34,11 @@
             </form>
             <div class="titleTableBody">
                 <div class='tam5 align-center'>ID</div>
-                <div class='tam50'>NOME DA ESCOLA</div>
-                <div class='tam20'>TIPO DE ENSINO</div>
-                <div class='tam20'>LOCALIDADE</div>
+                <div class='tam30'>NOME DA ESCOLA</div>
+                <div class='tam20'>ÁREA</div>
+                <div class='tam10'>CEP</div>
+                <div class='tam20'>CIDADE</div>
+                <div class='tam5'>UF</div>
                 <div class='tam20 align-center'>DATA DE MODIFICAÇÃO</div>
                 <div class='tam7 align-center'>AÇÃO</div>
             </div>
@@ -48,11 +50,16 @@
             else{
                 $get_filter = strtoupper($_GET["filter"]);
                 $filter = "WHERE
-                    bane_school LIKE '%$get_filter%'";
+                    name_school LIKE '%$get_filter%' OR
+                    school_locality LIKE '%$get_filter%' OR
+                    logradouro LIKE '%$get_filter%' OR
+                    bairro LIKE '%$get_filter%' OR
+                    cidade LIKE '%$get_filter%' OR
+                    uf LIKE '%$get_filter%'";
             }
             $conn = new ConnectionDatabase();
             $listed = $conn->find(
-                "SELECT * FROM school $filter",
+                "SELECT * FROM school $filter ORDER BY id",
                 null
             );
 
@@ -80,9 +87,11 @@
                 // show results
                 echo "<div class='TableBody'>";
                     echo "<div class='tam5 align-center'>{$linha['id']}</div>";
-                    echo "<div class='tam50'>{$linha['name_school']}</div>";
-                    echo "<div class='tam20'>{$linha['school_type']}</div>";
+                    echo "<div class='tam30'>{$linha['school_type']} {$linha['name_school']}</div>";
                     echo "<div class='tam20'>{$linha['school_locality']}</div>";
+                    echo "<div class='tam10'>{$linha['cep']}</div>";
+                    echo "<div class='tam20'>{$linha['cidade']}</div>";
+                    echo "<div class='tam5'>{$linha['uf']}</div>";
                     echo "<div class='tam20 align-center'>{$linha['modification_date']}</div>";
                     echo "<div class='tam7 align-center' id='acao' idRegistro='{$linha["id"]}' tbl='school' page='cadastro-de-escola'>";
                         echo "<img src='../../assets/icon-search.png' update title='Editar informações'>";

@@ -184,7 +184,8 @@ button{
 .fieldForm:nth-child(2){
 	margin-left: 2px;
 }
-.fieldForm label{padding: 5px 0px;}
+.fieldForm label{padding: 5px 0px; display: flex;}
+.fieldForm label span{color: var(--red)}
 .fieldForm input, .fieldForm select{width: 100%; height: 40px;}
 .locatityCalendar{
 	width: 70%;
@@ -362,6 +363,9 @@ button{
 	transform: translateX(-90%);
 }
 .btnEventChoiseDay{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 40px;
 	height: 40px;
 	padding: 5px 0px;
@@ -466,6 +470,39 @@ footer{
 .developer img{
 	margin: auto;
 	height: 100%;
+}
+.about{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+}
+.about_image, .about_text{
+	height: 100%;
+	margin: 0px 5px;
+}
+.about_image{
+	background: url('../assets/large_facada.jpeg');
+	background-size: 100% 100%;
+	border-radius: 9px;
+}
+.about_text *{
+	color: var(--black);
+}
+.about_text fieldset{
+	border: 1px solid var(--light-black);
+	padding: 10px;
+	margin: 10px 0px;
+	 border-radius: 3px;
+}
+.about_text fieldset legend{
+	padding: 0px 10px;
+}
+.about_text fieldset span{
+	margin: 5px 0px;
+}
+.small{
+	text-transform: none;
 }
 
 .erro{

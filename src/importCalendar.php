@@ -5,14 +5,24 @@ $calendar_import = $_GET["import"];
 $calendar_export = $_GET["export"];
 $event = $_GET["q"];
 $user = $_SESSION["id_user"];
+$_SESSION["errors"] = "";
 
 if(isset($_GET) and !empty($_GET))
 {
     $connection = new ConnectionDatabase();
     $data_export = getData_export($connection, $calendar_export, $event);
-    $import_results = import($connection, $calendar_import, $data_export, $user);
-
-    var_dump($import_results);
+    import($connection, $calendar_import, $data_export, $user);
+    if(empty($_SESSION["errors"]))
+    {
+       $verify_importation = array("message"=>true);
+    }
+    else
+    {
+       $verify_importation = array(
+           "message"=>false,
+        "data" => $_SESSION["errors"]);
+    }
+    echo json_encode($verify_importation);
 }
 
 function mountComand($event)
@@ -57,7 +67,7 @@ function import($connection,$calendar_import, $data_exported, $user)
         {
             $return = register($connection, $line, $calendar_import, $user);
         }
-        return $return;
+        logErro($return, $line["calendar_date"]);
     }
 }
 
@@ -76,8 +86,8 @@ function register($connection, $list, $id_calendar, $registered_user)
 }
 function update($connection, $data, $event, $registered_user)
 {
-    $calendar_date = $list["calendar_date"];
-    $event = $list["event"];
+    $calendar_date = $data["calendar_date"];
+    $event = $data["event"];
     $modification_date = date("Y-m-d H:i:s");
 
     $update = $connection->update(
@@ -91,5 +101,12 @@ function update($connection, $data, $event, $registered_user)
         )
     );
     return $update;
+}
+function logErro($data, $date)
+{
+    $json = json_decode($data, true);
+    if(!$json["message"]){
+        $_SESSION["errors"] .= "{$date},";
+    }
 }
 ?>

@@ -17,6 +17,11 @@
         $name_school = $values["name_school"];
         $school_type = $values["school_type"];
         $school_locality = $values["school_locality"];
+        $cep = $values["cep"];
+        $logradouro = $values["logradouro"];
+        $bairro = $values["bairro"];
+        $cidade = $values["cidade"];
+        $uf = $values["uf"];
     }
 
     // verificando o erro
@@ -52,22 +57,47 @@
                     <input type="hidden" name="update_tbl" value='<?php echo $tbl_update; ?>'>
                    <div class="fieldControl">
                         <div class="fieldForm tam100">
-                            <label for="name_school">Nome da Escola</label>
+                            <label for="name_school">Nome da Escola <span>*</span></label>
                             <input type="text" name='name_school' id='name_school' value="<?php echo $name_school; ?>" maxlength='255' required autofocus>
                         </div>
                     </div>
                     <div class="fieldControl">
                         <div class="fieldForm tam50">
-                            <label for="school_type">Tipo de Ensino</label>
-                            <input type="text" name='school_type' id='school_type' value="<?php echo $school_type; ?>" maxlength='255' list='type_school' required autofocus>
+                            <label for="school_type">Tipo de Ensino <span>*</span></label>
+                            <input type="text" name='school_type' id='school_type' value="<?php echo $school_type; ?>" maxlength='255' list='type_school' required>
                             <datalist id='type_school' style='display: none'>
                                 <option value="E. M.">Escola Municipal</option>
                                 <option value="E. M. E. I.">Escola Municipal de Ensino Infantil</option>
+                                <option value="E. E.">Escola Estadual</option>
                             </datalist>
                         </div>
                         <div class="fieldForm tam50">
-                            <label for="school_locality">Localidade</label>
-                            <input type="text" name='school_locality' id='school_locality' value="<?php echo $school_locality; ?>" maxlength='255' required autofocus>
+                            <label for="school_locality">ÁREA <span>*</span></label>
+                            <input type="text" name='school_locality' id='school_locality' value="<?php echo $school_locality; ?>" maxlength='255' required>
+                        </div>
+                    </div>
+                    <div class="fieldControl">
+                        <div class="fieldForm tam20">
+                            <label for="cep">CEP <span>*</span></label>
+                            <input type="text" name='cep' id='cep' value="<?php echo $cep; ?>" maxlength='8' cep required>
+                        </div>
+                        <div class="fieldForm tam80">
+                            <label for="logradouro">LOGRADOURO</label>
+                            <input type="text" name='logradouro' id='logradouro' value="<?php echo $logradouro; ?>" maxlength='255'>
+                        </div>
+                    </div>
+                    <div class="fieldControl">
+                        <div class="fieldForm tam40">
+                            <label for="bairro">BAIRRO</label>
+                            <input type="text" name='bairro' id='bairro' value="<?php echo $bairro; ?>" maxlength='255'>
+                        </div>
+                        <div class="fieldForm tam40">
+                            <label for="cidade">CIDADE <span>*</span></label>
+                            <input type="text" name='cidade' id='cidade' value="<?php echo $cidade; ?>" maxlength='255' required>
+                        </div>
+                        <div class="fieldForm tam20">
+                            <label for="uf">UF <span>*</span></label>
+                            <input type="text" name='uf' id='uf' value="<?php echo $uf; ?>" maxlength='2' required>
                         </div>
                     </div>
                     <div class="tam100">
@@ -79,5 +109,6 @@
    </div>
    <?php include_once("../footer/index.php"); ?>
    <script src='../../scripts/script.js'></script>
+   <script src='../../scripts/mask.js'></script>
 </body>
 </html>

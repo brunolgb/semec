@@ -24,10 +24,11 @@ class Attributes{
     public function number_of_event($event, $between)
     {
         $caseSchoolYears = $event == "letivo" ?
-        "OR event LIKE '%bimestre' AND calendar_date BETWEEN $between"
+        "OR event LIKE '%bimestre' AND calendar_date BETWEEN $between AND id_calendar='{$this->id_calendar}'"
         : "";
+
         $findEvent = $this->connectionDatabase->find(
-            "SELECT count(event) as total FROM calendar WHERE event=:event AND calendar_date BETWEEN $between $caseSchoolYears AND id_calendar='{$this->id_calendar}'",
+            "SELECT count(event) as total FROM calendar WHERE event=:event AND calendar_date BETWEEN $between AND id_calendar='{$this->id_calendar}' $caseSchoolYears",
             array(":event"=>$event)
         );
         [$numero] = $findEvent;
@@ -88,6 +89,14 @@ class Attributes{
         }, $this->getMonth());
     
         return $array_between;
+    }
+    public function attributes_distinct(){
+        $findEvent = $this->connectionDatabase->find(
+            "SELECT DISTINCT event FROM calendar WHERE id_calendar=:id ORDER BY event",
+            array(":id"=>$this->id_calendar)
+        );
+
+        return $findEvent;
     }
 }
 ?>

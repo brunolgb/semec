@@ -50,6 +50,7 @@
 			</form>
 		</div>
 		<a href='cadastrar' class='registration' registration>Cadastrar-se</a>
+		<a href='./src/pages/about/' class='registration' registration>Sobre SEMEC</a>
 	</div>
 	<script src='./src/scripts/script_login.js'></script>
 </body>
