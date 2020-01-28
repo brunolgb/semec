@@ -1,3 +1,6 @@
+<?php
+$page = $_GET["page"];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,9 +18,16 @@
                 <span>PÁGINA INICIAL /</span>
                 <span>Mais sobre SEMEC</span>
             </div>
+            <?php
+            if($page == "login")
+            {
+            ?>
             <div class="registration">
                 <a href="../../../" class='btnPattern'>Voltar para login</a>
             </div> 
+            <?php
+            }
+            ?>
         </div>
         <div class="box-control-body about">
             <div class="about_image tam50">
@@ -26,7 +36,7 @@
                 <h3>Secretaria Municipal de Educação</h3>
                 <fieldset>
                     <legend>Endereço</legend>
-                    <span>Rua das palmeiras</span>
+                    <span>Rua das palmeiras, Nº 284E</span>
                     <span>Bairro Nossa senhora de fátima</span>
                     <span>CEP 78310-000</span>
                 </fieldset>

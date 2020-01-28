@@ -30,6 +30,9 @@
                 <a href="../perfil">Perfil</a>
             </li>
             <li>
+                <a href="../about">Sobre a semec</a>
+            </li>
+            <li>
                 <a href="../../../">Sair</a>
             </li>
         </ul>
