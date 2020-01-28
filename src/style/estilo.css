@@ -116,6 +116,16 @@ button{
 	height: 35px;
 	margin-bottom: 30px;
 }
+.box-control-body .filter .checkbox-filter{
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.box-control-body .filter .checkbox-filter *{cursor: pointer}
+.filter .checkbox-filter input{
+	margin: 0px 10px;
+	height: 40px;
+}
 .box-control-body .total_results{
 	height: 35px;
 	line-height: 35px;
@@ -537,6 +547,123 @@ footer{
 		opacity: 0;
 		top: 40px;
 	}
+}
+.btn_withdraw{
+	outline: none;
+	border: 1px solid var(--pattern);
+	border-radius: 2px;
+	background: var(--white);
+	color: var(--pattern);
+	width: 95%;
+	padding: 1.2px 0px;
+	cursor: pointer;
+}
+.withdraw_selected{
+	border-color: var(--red);
+	background: var(--red);
+	color: var(--white);
+}
+.withdrawal{
+	border-color: var(--light-black);
+	background: var(--light-black);
+	color: var(--black);
+}
+
+.box_withdraw{
+	width: 400px;
+	height: auto;
+	position:fixed;
+	bottom: -30%;
+	right: 10px;
+	background: var(--pattern);
+	border-radius: 5px;
+	box-shadow: 1px 1px 10px var(--light-black);
+	cursor: pointer;
+	overflow: hidden;
+}
+.show_box_withdraw{
+	animation: anime_box_withdraw 0.5s ease-in-out forwards;
+}
+@keyframes anime_box_withdraw{
+	0%{
+		opacity: 0;
+		bottom: -30%;
+	}
+	100%{
+		opacity: 1;
+		bottom: 10px;
+	}
+}
+.reverse_show_box_withdraw{
+	animation: reverse_anime_box_withdraw 0.5s ease-in-out forwards;
+}
+@keyframes reverse_anime_box_withdraw{
+	0%{
+		opacity: 1;
+		bottom: 10px;
+	}
+	100%{
+		opacity: 0;
+		bottom: -30%;
+	}
+}
+#withdraw{
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	height: 50px;
+	padding-left: 10px;
+	color: var(--white);
+	text-align: center;
+	border-bottom: 1px solid var(--light-pattern)
+}
+#withdraw span{
+	width: 50px;
+	margin-left: 10px;
+	color: var(--yellow);
+}
+.form_withdraw{
+	display: none;
+	width: 100%;
+	padding: 10px;
+}
+.anime_form_withdraw{
+	display: block
+}
+.form_withdraw form label{
+	margin: 15px 0px 10px 0px;
+	color: var(--white)
+}
+.form_withdraw form input, .form_withdraw form select{
+	width: 100%;
+	margin: 5px 0;
+	outline: none;
+	border: none;
+	color: var(--pattern)
+}
+.buttons_withdraw{
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+.form_withdraw form .submit:nth-child(1){
+	border-color: var(--white);
+	background: none;
+	color: var(--white);
+}
+.form_withdraw form .submit:nth-child(1):hover{
+	border-color: var(--yellow);
+	background: var(--yellow);
+	color: var(--white);
+}
+.form_withdraw form .close_withdraw{
+	border-color: var(--red);
+	background: var(--red);
+	color: var(--white);
+}
+.destination_city{display: none;}
+.anime_destination_city{
+	display: block;
 }
 @media(min-width: 1400px){
 	body{
