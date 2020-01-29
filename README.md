@@ -1,7 +1,7 @@
 # semec
 O sistema SEMEC foi criado para auxiliar as Secretarias de Educação dos Municípios, tendo o foco em automatizar atividades que geralmente são manuais.
 
-# h1 Calendário escolar
+## Calendário escolar
 No sistema SEMEC, temos a possibilidade de criar calendarios estilizados e bonitos para o ano letivo atual. Este calendário conta com:
 
 - Legendas
