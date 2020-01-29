@@ -17,12 +17,12 @@ Simples e fácil de cadastrar o arquivo passivo e ter controle dele
 Ter um controle de transferências é uma prioridade nas escolas e secretarias!
 O sistema permite cadastrar transferências, contendo:
 
--- Nome do aluno
--- Data de nascimento
--- Nome do pai
--- Nome da mãe
--- Escola que estava frequentando
--- Último ano letivo
+- Nome do aluno
+- Data de nascimento
+- Nome do pai
+- Nome da mãe
+- Escola que estava frequentando
+- Último ano letivo
 
 #### Retirar Tranferência
 Para retirar a transferência de um aluno deve-se clicar no botão __retirar__. Quando clicado, abrirá uma caixa de diálogo, onde o sistema perguntará a data que foi retirada, o responsável que pegou a transferência em mãos e a escola de destino.
