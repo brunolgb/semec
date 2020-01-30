@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../../style/styleHeader.css">
   <header class='nav'>
-    <span>SEMEC</span>
     <nav>
         <div class="btnMenu">
             <div></div>
@@ -37,4 +36,5 @@
             </li>
         </ul>
     </nav>
+    <span>SEMEC</span>
 </header>

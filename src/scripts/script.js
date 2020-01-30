@@ -4,11 +4,17 @@ btnMenu.addEventListener('click', () => {
     const li = document.querySelectorAll(".menu li");
 
     menu.classList.toggle('movimentingMenu');
-    setTimeout(() => {
-        li.forEach(e => {
+
+    li.forEach((e) => {
+        e.classList.toggle('opacityMenuLi');
+    })
+    
+    li.forEach((e, index) => {
+        const timeAll = index * 50
+        setTimeout(() => {
             e.classList.toggle('movimentingMenuLi');
-        })
-    }, 100);
+        }, timeAll );
+    })
 })
 
 function addValueInputHidden(element)
