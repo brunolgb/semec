@@ -53,7 +53,7 @@ if(isset($_POST))
                     null
                 );
 
-                $transf_json = json_decode($insert, assoc);
+                $transf_json = json_decode($insert, true);
                 if($transf_json["message"])
                 {
                     // buscando o id do ususario
@@ -63,6 +63,7 @@ if(isset($_POST))
                             ":cpf"=>$cpf
                     ));
 
+                    session_cache_expire(120);
                     $_SESSION["id_user"] = $id_user[0]['id'];
                     $_SESSION["name_person"] = $select[0]["name_person"];
                     header("Location: pages/home");

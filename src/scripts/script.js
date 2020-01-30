@@ -180,13 +180,13 @@ submit_from_withdraw.addEventListener("click", (event) => {
     const URLFormfield = mountURLFormfield();
 
     let ids_school_transfer = document.querySelector('[ids_school_transfer]');
-    ids_school_transfer = ids_school_transfer.value.split(','); 
+    ids_school_transfer = ids_school_transfer.value.split(',');
+
+    creatorBackgroundWithdrawal();
 
     ids_school_transfer.forEach(async ids => {
         const response = await withdraw(ids, URLFormfield)
         const response_ids_withdraw = await response.json();
-
-        console.log(response_ids_withdraw)
     });
 })
 
@@ -203,4 +203,13 @@ function mountURLFormfield()
 function withdraw(id, partyUrl)
 {
     return fetch(`../../setWithdraw.php?ids_school_transfer=${id}&${partyUrl}`)
+}
+
+function creatorBackgroundWithdrawal()
+{
+    const background = document.createElement('div');
+    background.setAttribute('class','loadWithdrawal_background');
+    
+    const form_withdraw = document.querySelector('.form_withdraw');
+    form_withdraw.appendChild(background);
 }

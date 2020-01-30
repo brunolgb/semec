@@ -151,8 +151,7 @@ button{
 	transition: .15s ease-in-out;
 }
 .box-control-body .TableBody:hover div{
-	color: var(--red);
-	transform: scale(1.05);
+	color: var(--light-pattern);
 }
 .box-control-body .titleTableBody div, .box-control-body .TableBody div{text-align: left;}
 .box-control-body .titleTableBody .align-center, .box-control-body .TableBody .align-center{text-align: center;}

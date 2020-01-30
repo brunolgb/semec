@@ -70,7 +70,7 @@ if(!empty($_GET) and isset($_GET))
         echo updateTransfer($ids_withdraw, $con_withdraw);
     }
     else{
-        echo $insert_school_transfer_withdrawal;
+        echo '[{ "erro": "Não foi inserido" }, ' . $insert_school_transfer_withdrawal . ']';
     }
 
 }

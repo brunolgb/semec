@@ -38,7 +38,6 @@ function actionUpdate($con, $query, $id_update)
     if(substr($query, 0, 12) != "modification")
     {
         $comand = "UPDATE school_transfer SET $query WHERE id='$id_update'";
-        echo $comand;
 
         $return = $con->update(
             $comand,

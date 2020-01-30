@@ -90,7 +90,6 @@ if(isset($_POST) and !empty($_POST))
         '{$storage['cidade']}',
         '{$storage['uf']}'
         )";
-        echo $comand;
 
         $return = $con->insert(
             $comand,

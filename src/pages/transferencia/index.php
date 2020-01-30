@@ -58,7 +58,7 @@
             if(isset($_GET["filter_withdrawal"]))
             {
                 $filter_withdrawal = "withdrawal='" . $_GET["filter_withdrawal"] . "'";
-                $filter = empty($filter) ? "WHERE " . $filter_withdrawal : $filter . " OR " . $filter_withdrawal; 
+                $filter = empty($filter) ? "WHERE " . $filter_withdrawal : $filter . " AND " . $filter_withdrawal; 
             }
             $conn = new ConnectionDatabase();
             $listed = $conn->find(
@@ -115,7 +115,7 @@
                         echo $btn_withdrawal;
                     echo "</div>";
                     echo "<div class='tam7' id='acao' idRegistro='{$linha["id"]}' tbl='school_transfer' page='cadastro-de-transferencia'>";
-                        echo "<img src='../../assets/icon-search.png' update title='Editar informações'>";
+                        echo "<img src='../../assets/icon-search.png' update title='Ver informações'>";
                         echo "<img src='../../assets/icon-delete.png' delete title='Deletar registro'>";
                     echo "</div>";
                 echo "</div>";
