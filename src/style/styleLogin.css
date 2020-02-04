@@ -36,6 +36,7 @@
 	width: 100%;
 	background: #fff;
 	margin-bottom: 21px;
+	position: relative;
 }
 .box-control-login .box_field label{
 	flex-wrap: nowrap;
@@ -65,6 +66,29 @@
 }
 .registration-section-mov{
 	animation: registrationMov .3s ease-in-out forwards;
+}
+#password-btn-visible{
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+.movimentPassword{
+	animation: movimentImgPassword 0.2s ease-in-out;
+}
+
+@keyframes movimentImgPassword{
+	0%{
+		top: 50%;
+	}
+	50%{
+		top: 40%;
+	}
+	100%{
+		top: 50%;
+	}
 }
 @keyframes registrationMov{
 	0%{

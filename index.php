@@ -33,7 +33,10 @@
 					</div>
 					<div class="box_field">
 						<label for="password_acess" class='tam30'>Senha</label>
-						<input type="password" name='password_acess' id='password_acess' placeholder='Digite sua senha' required title='Senha'>
+						<input type="password" name='password_acess' id='password_acess' fieldPassword placeholder='Digite sua senha' required title='Senha'>
+						<figure id='password-btn-visible' password>
+							<img src="src/assets/password-hidden.png" alt="Senha escondida">
+						</figure>
 					</div>
 				</section>
 				<section class="registration-section">

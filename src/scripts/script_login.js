@@ -31,3 +31,25 @@ registration.addEventListener('click', (event) => {
     const return_setVerifyAction = setVerifyAction(return_ShowResgitration);
     setBtnRegistration(registration, return_setVerifyAction);
 })
+
+//replace image do password
+const password = document.querySelector("[password]");
+password.addEventListener("click", () => {
+    const imgPassword = password.childNodes[1];
+    const fieldPassword = document.querySelector("[fieldPassword]");
+
+    password.classList.add("movimentPassword");
+    setTimeout(() => {
+        password.classList.remove("movimentPassword");
+    }, 200);
+
+    if(fieldPassword.getAttribute("type") == "password")
+    {
+        fieldPassword.setAttribute("type", "text");
+        imgPassword.src = imgPassword.src.replace("password-hidden", "password-show");
+    }
+    else{
+        fieldPassword.setAttribute("type", "password");
+        imgPassword.src = imgPassword.src.replace("password-show", "password-hidden");
+    }
+})
