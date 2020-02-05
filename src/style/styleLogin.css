@@ -118,39 +118,3 @@
 	margin: auto;
 	margin-top: 20px;
 }
-
-@media(max-width: 1000px){
-	.background{
-		background-size: 200%;
-		background-position: top;
-	}
-	.box-control-login{
-		width: 90%;
-		height: auto;
-		min-height: 500px;
-		margin: auto;
-		margin-top: 80px;
-	}
-	.box-control-login figure img{
-		height: 350px;
-		margin-bottom: 50px;
-	}
-	.box-control-login .box_field{
-		height: 150px;
-		margin: 50px auto;
-	}
-	.box-control-login .box_field label{
-		height: 100%;
-		line-height: 150px;
-	}
-	.box-control-login .box_field input{
-		height: 100%;
-	}
-	.registration{
-		min-width: 350px;
-		height: 30px;
-		line-height: 30px;
-		margin-top: 50px;
-		font-size:30px;
-	}
-}

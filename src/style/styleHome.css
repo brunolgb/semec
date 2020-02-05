@@ -27,17 +27,19 @@
 
 #botoes{ display: block; }
 #botoes ul{
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	width: 1200px;
 	padding: 0px;
 	margin: auto;
 }
 #botoes ul li{
-	width: 25%;
 	margin: 5px;
+	padding-bottom: 10px;
 	border: 1px solid #ddd;
 	border-radius: 0.4em;
 	box-shadow: 1px 1px 3px #eee;
+	overflow: hidden;
 }
 #botoes ul li a{
 	display: block;
@@ -51,6 +53,7 @@
 #botoes ul li a img{
 	display: block;
 	margin: auto;
-	width: 210px;
-	height: 320px;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 310px;
 }
