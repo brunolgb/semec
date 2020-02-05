@@ -54,7 +54,7 @@
                     <div class="fieldControl">
                         <div class="fieldForm tam100">
                             <label for="cpf">CPF</label>
-                            <input type="text" name='cpf' id='cpf' value='<?php echo $results["cpf"]?>'>
+                            <input type="text" name='cpf' id='cpf' value='<?php echo $results["cpf"]?>' cpf>
                         </div>
                     </div>
                     <div class="tam100">
@@ -66,5 +66,6 @@
    </div>
    <?php include_once("../footer/index.php"); ?>
    <script src='../../scripts/script.js'></script>
+   <script src='../../scripts/mask.js'></script>
 </body>
 </html>

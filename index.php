@@ -17,7 +17,6 @@
 	<title>Secretaria Municipal de Educação de Comodoro</title>
 </head>
 <body>
-	<div class="background"></div>
 	<div class="box-login">
 	<?php echo $responseMsg; ?>
 		<div class="box-control-login">
@@ -29,7 +28,7 @@
 				<section id="login">
 					<div class="box_field">
 						<label for="cpf" class='tam30'>CPF</label>
-						<input type="text" name='cpf' placeholder='000.000.000-00' id='cpf' maxlength='14' autofocus required title='CPF'>
+						<input type="text" name='cpf' placeholder='000.000.000-00' id='cpf' maxlength='14' autofocus required title='CPF' cpf>
 					</div>
 					<div class="box_field">
 						<label for="password_acess" class='tam30'>Senha</label>
@@ -56,5 +55,6 @@
 		<a href='./src/pages/about/?page=login' class='registration' registration>Sobre SEMEC</a>
 	</div>
 	<script src='./src/scripts/script_login.js'></script>
+	<script src='./src/scripts/mask.js'></script>
 </body>
 </html>

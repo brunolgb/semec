@@ -18,5 +18,9 @@
     {
         "codigo": 9,
         "message": "Algo de errado aconteceu! Tente novamente"
+    },
+    {
+        "codigo": 10,
+        "message": "CPF inválido!"
     }
 ]

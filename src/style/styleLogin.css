@@ -1,22 +1,10 @@
-.background{
-	width: 100vw;
-	height: 100vh;
-	min-height: 600px;
-	position: absolute;
-	top: 0px;
-	left: 0;
-	z-index: 9998;
-	background: var(--light-pattern) url('../assets/large_facada.png') no-repeat;
-	background-size: 100% 100%;
-	background-position: top;
-}
 .box-login{
 	width: 100vw;
-	height: 100vh;
-	min-height: 600px;
+	height: auto;
+	min-height: 100vh;
 	position: absolute;
 	z-index: 9999;
-	background: var(--background-transparente);
+	background: var(--pattern);
 	align-items: center;
 }
 .box-control-login{
