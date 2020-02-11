@@ -1,8 +1,8 @@
 <?php
-    include_once('../../verify_session.php');
-    include_once('../fillCount.php');
-    include_once('../../class/LoadClass.php');
-    include_once("../../class/DateTools.php");
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'verify_session.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'fillCount.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class/LoadClass.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class/DateTools.php');
 
     $verification_if_checked_the_checkbox = empty($_GET['filter_withdrawal']) ? '' : 'checked';
 ?>
@@ -15,7 +15,7 @@
     <title>SEMEC - TRANSFERÊNCIA</title>
 </head>
 <body>
-   <?php include_once('../header/index.php'); ?>
+   <?php include_once('..'. DIRECTORY_SEPARATOR .'header'. DIRECTORY_SEPARATOR .'index.php'); ?>
 
     <div class="box-control">
         <div class="box-control-header">

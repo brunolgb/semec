@@ -108,7 +108,7 @@
             ?>
         </div>
     </div>
-    <?php include_once("../footer/index.php"); ?>
+    <?php include_once("..". DIRECTORY_SEPARATOR ."footer". DIRECTORY_SEPARATOR ."index.php"); ?>
    <script src='../../scripts/script.js'></script>
 </body>
 </html>

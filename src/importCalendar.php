@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("class/ConnectionDatabase.php");
+include_once("class". DIRECTORY_SEPARATOR ."ConnectionDatabase.php");
 $calendar_import = $_GET["import"];
 $calendar_export = $_GET["export"];
 $event = $_GET["q"];

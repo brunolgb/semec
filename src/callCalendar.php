@@ -1,5 +1,5 @@
 <?php
-include_once("class/LoadClass.php");
+include_once("class". DIRECTORY_SEPARATOR ."LoadClass.php");
 $id = $_GET["id"];
 $connection = new ConnectionDatabase();
 $list = $connection->find(

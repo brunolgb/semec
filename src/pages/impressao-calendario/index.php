@@ -1,8 +1,8 @@
 <?php
     session_start();
     $id_calendar = $_GET["calendar"];
-    include_once('../../class/LoadClass.php');
-    include_once('../../class/DateTools.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'LoadClass.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'DateTools.php');
 
 
     $cone = new ConnectionDatabase();

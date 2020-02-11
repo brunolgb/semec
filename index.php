@@ -3,7 +3,7 @@
 	session_destroy();
 	
 	// verificando o erro
-	include_once("src/class/ErrorsForms.php");
+	include_once("src" . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "ErrorsForms.php");
     $message = new ErrorsForms();
     $responseMsg = $message->getMsg($_GET["m"]);
 ?>

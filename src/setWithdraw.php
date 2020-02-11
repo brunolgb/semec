@@ -3,7 +3,7 @@ session_start();
 $user = $_SESSION["id_user"];
 if(!empty($_GET) and isset($_GET))
 {
-    include_once('./class/LoadClass.php');
+    include_once('.'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'LoadClass.php');
     $ids_withdraw = $_GET["ids_school_transfer"];
     $withdrawal_date = $_GET["withdrawal_date"];
     $responsible = $_GET["responsible"];

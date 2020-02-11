@@ -13,12 +13,12 @@ class Attributes{
 
     private function getMonth()
     {
-        $contentMonth = file_get_contents("data/month.json");
+        $contentMonth = file_get_contents("data". DIRECTORY_SEPARATOR ."month.json");
         return json_decode($contentMonth, true);
     }
     private function getEvent()
     {
-        $contentMonth = file_get_contents("data/events.json");
+        $contentMonth = file_get_contents("data". DIRECTORY_SEPARATOR ."events.json");
         return json_decode($contentMonth, true);
     }
     public function number_of_event($event, $between)

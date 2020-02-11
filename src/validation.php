@@ -7,11 +7,12 @@ $password_acess =  md5($_POST['password_acess']);
 
 if(isset($_POST))
 {
-    include_once("class/LoadClass.php");
+    include_once("class". DIRECTORY_SEPARATOR ."LoadClass.php");
     $connection = new ConnectionDatabase();
 
     if($verify_action == "login")
     {
+ 
         $select = $connection->find(
             "SELECT id, name_person FROM person where cpf='$cpf' AND password_acess=:password_acess",
             array(

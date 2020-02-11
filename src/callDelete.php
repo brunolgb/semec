@@ -1,5 +1,5 @@
 <?php
-include_once('./class/LoadClass.php');
+include_once(".". DIRECTORY_SEPARATOR ."class". DIRECTORY_SEPARATOR ."LoadClass.php");
 
 $id = $_GET['id'];
 $table = $_GET["tbl"];

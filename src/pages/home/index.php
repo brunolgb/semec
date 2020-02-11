@@ -9,7 +9,7 @@
 	<title>SEMEC</title>
 </head>
 <body>
-	<?php include_once('../header/index.php'); ?>
+	<?php include_once('..'. DIRECTORY_SEPARATOR .'header'. DIRECTORY_SEPARATOR .'index.php'); ?>
 
 	<div class="box-control">
 		<div id="botoes">
@@ -41,7 +41,7 @@
 			</ul>
 		</div>
 	</div>
-	<?php include_once('../footer/index.php')?>
+	<?php include_once('..'. DIRECTORY_SEPARATOR .'footer'. DIRECTORY_SEPARATOR .'index.php')?>
 </body>
 <script src='../../scripts/script.js'></script>
 </html>

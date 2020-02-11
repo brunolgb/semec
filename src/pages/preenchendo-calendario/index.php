@@ -1,6 +1,6 @@
 <?php
-    include_once('../../verify_session.php');
-    include_once('../../class/LoadClass.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'verify_session.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class/LoadClass.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -113,7 +113,7 @@
             </aside>
         </div>
    </div>
-    <?php include_once("../footer/index.php"); ?>
+    <?php include_once('..'. DIRECTORY_SEPARATOR .'footer'. DIRECTORY_SEPARATOR .'index.php'); ?>
     <script src='../../scripts/script.js'></script>
     <script src='../../scripts/script_creatorMonth.js'></script>
     <script src='../../scripts/script_clickEvent.js'></script>

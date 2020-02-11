@@ -1,8 +1,8 @@
 <?php
-    include_once('../../verify_session.php');
-    include_once('../fillCount.php');
-    include_once('../../class/LoadClass.php');
-    include_once("../../class/DateTools.php");
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'verify_session.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'fillCount.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'LoadClass.php');
+    include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'DateTools.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,7 +13,7 @@
     <title>SEMEC - Calendários</title>
 </head>
 <body>
-   <?php include_once('../header/index.php'); ?>
+   <?php include_once('..'. DIRECTORY_SEPARATOR .'header'. DIRECTORY_SEPARATOR .'index.php'); ?>
 
     <div class="box-control">
         <div class="box-control-header">
@@ -70,7 +70,7 @@
             ?>
         </div>
     </div>
-    <?php include_once("../footer/index.php"); ?>
+    <?php include_once("..". DIRECTORY_SEPARATOR ."footer". DIRECTORY_SEPARATOR ."index.php"); ?>
    <script src='../../scripts/script.js'></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../../class/LoadClass.php');
+include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'LoadClass.php');
 function searchEqual($con, $id)
 {
     $show = $con->find(

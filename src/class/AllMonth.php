@@ -14,7 +14,7 @@ class AllMonth{
 
     private function getJsonMonths()
     {
-        $contentMonth = file_get_contents('../../data/month.json');
+        $contentMonth = file_get_contents('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'data'. DIRECTORY_SEPARATOR .'month.json');
         $this->json_monthAll = json_decode($contentMonth, true);
     }
     public function number_of_event($event, $between)

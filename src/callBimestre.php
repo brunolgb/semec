@@ -1,5 +1,5 @@
 <?php
-include_once("class/LoadClass.php");
+include_once("class". DIRECTORY_SEPARATOR ."LoadClass.php");
 
 $id_calendar = $_GET["calendar"];
 $event = $_GET["event"];
