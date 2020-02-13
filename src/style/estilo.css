@@ -471,6 +471,10 @@ footer{
 	color: var(--white);
 	margin-top: 60px;
 	box-sizing: border-box;
+	transition: background 3s ease-in-out;
+}
+.footerColor{
+	background: rgb(105,0,154);
 }
 .developer{
 	text-align:center;

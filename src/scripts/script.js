@@ -235,3 +235,10 @@ if (development != undefined)
         window.location.replace('../desenvolvedor/')
     })
 }
+
+const footer = document.querySelector(".footer");
+if (footer != undefined) {
+    setInterval(() => {
+        footer.classList.toggle("footerColor")
+    }, 2500);
+}
