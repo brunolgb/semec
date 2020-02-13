@@ -1,4 +1,5 @@
 <?php
+session_start();
 $page = $_GET["page"];
 ?>
 <!DOCTYPE html>
@@ -10,7 +11,7 @@ $page = $_GET["page"];
     <title>SEMEC - SOBRE A SEMEC</title>
 </head>
 <body>
-   <?php include_once('../header/index.php'); ?>
+   <?php include_once('..'. DIRECTORY_SEPARATOR .'header'. DIRECTORY_SEPARATOR .'index.php'); ?>
 
     <div class="box-control">
         <div class="box-control-header">
@@ -21,30 +22,36 @@ $page = $_GET["page"];
             <?php
             if($page == "login")
             {
-            ?>
-            <div class="registration">
-                <a href="../../../" class='btnPattern'>Voltar para login</a>
-            </div> 
-            <?php
+                echo "<div class='registration'>";
+                    echo "<a href='../../../' class='btnPattern'>Voltar para login</a>";
+                echo "</div> ";
+            }
+            else{
+                $user = $_SESSION["id_user"];
+                include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'verify_session.php');
+                echo "<div class='registration'>";
+                    echo "<a href='../../pages/home/' class='btnPattern'>Voltar para home</a>";
+                echo "</div> ";
             }
             ?>
         </div>
         <div class="box-control-body about">
-            <div class="about_image tam50">
+            <div class="about_image">
             </div>
-            <div class="about_text tam50">
-                <h3>Secretaria Municipal de Educação</h3>
-                <fieldset>
-                    <legend>Endereço</legend>
+            <div class="about_text">
+                <h2>Secretaria Municipal de Educação</h2>
+                <div>
+                    <h3>Endereço</h3>
                     <span>Rua das palmeiras, Nº 284E</span>
                     <span>Bairro Nossa senhora de fátima</span>
                     <span>CEP 78310-000</span>
-                </fieldset>
-                <fieldset>
-                    <legend>Contato</legend>
+                    <span><a href="https://www.google.com.br/maps/dir/-13.6665549,-59.7896766/">Abrir no google map</a></span>
+                </div>
+                <div>
+                    <h3>Contato</h3>
                     <span>Telefone | (65) 3283-1472</span>
                     <span class='small'>E-MAIL | semeccdo@gmail.com</span>
-                </fieldset>
+                </div>
             </div>
         </div>
     </div>

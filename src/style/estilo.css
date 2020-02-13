@@ -467,28 +467,30 @@ footer{
 	background: var(--black);
 	color: var(--white);
 	margin-top: 60px;
+	box-sizing: border-box;
 }
 .developer{
 	text-align:center;
-	height: 70px;
+	height: 150px;
 }
 .developer span{
 	color: var(--light-black);
-	font-size: 12px;
+	font-size: 10px;
 }
 .developer img{
 	margin: auto;
 	height: 100%;
 }
 .about{
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	align-items: center;
 	justify-content: center;
 	height: 400px;
 }
 .about_image, .about_text{
 	height: 100%;
-	margin: 0px 5px;
+	margin: 0px 10px;
 }
 .about_image{
 	background: url('../assets/large_facada.jpeg');
@@ -498,16 +500,15 @@ footer{
 .about_text *{
 	color: var(--black);
 }
-.about_text fieldset{
-	border: 1px solid var(--light-black);
-	padding: 10px;
-	margin: 10px 0px;
-	 border-radius: 3px;
+
+.about_text h2{
+	margin-bottom: 10px;
 }
-.about_text fieldset legend{
-	padding: 0px 10px;
+.about_text div{margin: 30px 0;}
+.about_text h3{
+	color: var(--pattern)
 }
-.about_text fieldset span{
+.about_text span{
 	margin: 5px 0px;
 }
 .small{
