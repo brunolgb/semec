@@ -159,42 +159,49 @@ function show_options_withdraw()
 
 // close withdrawal
 const close_withdraw = document.querySelector("[close_withdraw]");
-close_withdraw.addEventListener("click", (event) => {
-    event.preventDefault()
-    const close_formwithdraw = document.querySelector(".form_withdraw");
-    close_formwithdraw.style.display = "none";
+if(close_withdraw != undefined)
+{
+    close_withdraw.addEventListener("click", (event) => {
+        event.preventDefault()
+        const close_formwithdraw = document.querySelector(".form_withdraw");
+        close_formwithdraw.style.display = "none";
 })
+}
 
 // option input select on select school destination
 const select_destinationSchool = document.querySelector("#destination_school");
-select_destinationSchool.addEventListener("change", () => {
-    const citydestination = document.querySelector(".destination_city")
-    if(select_destinationSchool.value=="nenhuma")
-    {
-        citydestination.classList.add("anime_destination_city");
-        citydestination.focus();
-    }
-    else{
-        citydestination.classList.remove("anime_destination_city");
-    }
-})
+if (select_destinationSchool != undefined) {
+    select_destinationSchool.addEventListener("change", () => {
+        const citydestination = document.querySelector(".destination_city")
+        if(select_destinationSchool.value=="nenhuma")
+        {
+            citydestination.classList.add("anime_destination_city");
+            citydestination.focus();
+        }
+        else{
+            citydestination.classList.remove("anime_destination_city");
+        }
+    })
+}
 
 // getdata form withdraw
 const submit_from_withdraw = document.querySelector("[submit]");
-submit_from_withdraw.addEventListener("click", (event) => {
-    event.preventDefault();
-    const URLFormfield = mountURLFormfield();
+if (close_withdraw != undefined) {
+    submit_from_withdraw.addEventListener("click", (event) => {
+        event.preventDefault();
+        const URLFormfield = mountURLFormfield();
 
-    let ids_school_transfer = document.querySelector('[ids_school_transfer]');
-    ids_school_transfer = ids_school_transfer.value.split(',');
+        let ids_school_transfer = document.querySelector('[ids_school_transfer]');
+        ids_school_transfer = ids_school_transfer.value.split(',');
 
-    creatorBackgroundWithdrawal();
+        creatorBackgroundWithdrawal();
 
-    ids_school_transfer.forEach(async ids => {
-        const response = await withdraw(ids, URLFormfield)
-        const response_ids_withdraw = await response.json();
-    });
-})
+        ids_school_transfer.forEach(async ids => {
+            const response = await withdraw(ids, URLFormfield)
+            const response_ids_withdraw = await response.json();
+        });
+    })
+}
 
 function mountURLFormfield()
 {
@@ -218,4 +225,13 @@ function creatorBackgroundWithdrawal()
     
     const form_withdraw = document.querySelector('.form_withdraw');
     form_withdraw.appendChild(background);
+}
+
+
+const development = document.querySelector(".developer");
+if (development != undefined)
+{
+    development.addEventListener("click", ()=>{
+        window.location.replace('../desenvolvedor/')
+    })
 }

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+.control_mypage *{text-transform: none; font-family: Roboto, Arial, Helvetica, sans-serif;}
+.box-controldev{
+    min-height: auto;
+    height: auto;
+}
+.control_mypage{
+    display: block;
+    width: 100vw;
+    height: auto;
+    min-height: 100px;
+}
+.mypage_logo{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    align-content: center;
+    height: 300px;
+    background: rgb(105,0,154);
+}
+.mypage_logo figure img{height: 200px; margin: auto}
+.mypage_services{position: relative;}
+.controlServices{
+    width: 1000px;
+    height: 450px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr;
+    margin: auto;
+}
+.mypage_services h1{
+    font-size: 40px;
+    text-transform: none;
+    margin: auto;
+    color: rgb(101,101,101);
+}
+.myservices{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 1000px;
+    height: 400px;
+    position:absolute;
+    z-index: 9888;
+    top: 150px;
+}
+.myservices .myservice{
+    display: grid;
+    grid-template-rows: .2fr .2fr 1fr;
+    justify-items: center;
+    background: rgb(105,0,154);
+    margin: 5px;
+    border-radius: 5px;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 5px 10px 5px rgba(41, 0, 41, 0.4);
+}
+.myservice span{color: #fff; text-align: center;}
+.myservice span em{color:rgb(225, 0, 255);}
+.myservice .titleService{
+    font-size: 25px;
+}
+.myservice #separator{
+    background: rgb(191, 0, 216);
+    width: 90%;
+    height: 3px;
+    margin: 15px 0px 20px 0px;
+}
+.myservice .describeService{
+    font-size: 17px;
+}
+.mypage_redes{
+    height: 400px;
+    background: rgb(191, 0, 216);
+}
+.controlRedes{
+    width: 800px;
+    height: auto;
+    margin: auto;
+    padding-top: 240px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.controlRedes div a{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 23px;
+}
+.controlRedes div img{
+    height: 40px;
+}
+.controlRedes div span{
+    color: #fff;
+    text-transform: none;
+}

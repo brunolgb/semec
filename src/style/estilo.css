@@ -199,8 +199,6 @@ button{
 .locatityCalendar{
 	width: 70%;
 	height: auto;
-	display: flex;
-	flex-wrap: wrap;
 	margin:auto;
 	margin-top: 30px;
 }
@@ -209,15 +207,20 @@ button{
 	padding: 5px;
 	color: var(--pattern);
 }
+.btnLocalityCalendar{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .choiseLocality{
-	width: 32.1%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 2;
 	height: 300px;
 	border: 1px solid var(--light-black);
 	border-radius: 5px;
 	text-align: center;
 	color: var(--pattern);
 	overflow: hidden;
-	margin: auto;
 	margin: 5px;
 	cursor: pointer;
 	filter: contrast(15%);
@@ -471,7 +474,10 @@ footer{
 }
 .developer{
 	text-align:center;
+	width: 150px;
 	height: 150px;
+	cursor: pointer;
+	margin: auto;
 }
 .developer span{
 	color: var(--light-black);

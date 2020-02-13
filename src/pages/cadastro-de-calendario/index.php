@@ -69,18 +69,24 @@
 
                     <div class="locatityCalendar">
                         <div class="titleLocalityCalendar">Escolha a localidade</div>
-                        <div class='choiseLocality <?php echo $check_locality[0]; ?>' locality='indigena'>
-                            <img src="../../assets/icone-indigena.svg" alt="">
-                            <span>Indígena</span>
-                        </div>
-                        <div class='choiseLocality <?php echo $check_locality[1]; ?>' locality='rural'>
-                            <img src="../../assets/icone-rural.svg" alt="">
-                            <span>Rural</span>
-                        </div>
-                        <div class='choiseLocality <?php echo $check_locality[2]; ?>' locality='urbano'>
-                            <img src="../../assets/icone-urbano.svg" alt="">
-                            <span>Urbano</span>
-                        </div>
+                        <aside class="btnLocalityCalendar">
+                            <div class='choiseLocality <?php echo $check_locality[0]; ?>' locality='indigena'>
+                                <img src="../../assets/icone-indigena.svg" alt="">
+                                <span>Indígena</span>
+                            </div>
+                            <div class='choiseLocality <?php echo $check_locality[1]; ?>' locality='rural'>
+                                <img src="../../assets/icone-rural.svg" alt="">
+                                <span>Rural</span>
+                            </div>
+                            <div class='choiseLocality <?php echo $check_locality[2]; ?>' locality='urbano'>
+                                <img src="../../assets/icone-urbano.svg" alt="">
+                                <span>Urbano</span>
+                            </div>
+                            <div class='choiseLocality <?php echo $check_locality[3]; ?>' locality='mesclado'>
+                                <img src="../../assets/icone-mesclado.svg" alt="">
+                                <span>Mesclado</span>
+                            </div>
+                        </aside>
                         <input type="hidden" name="locality" value='<?php echo $locality; ?>' localityValue required>
 
                         <div class="tam100">
