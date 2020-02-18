@@ -45,7 +45,7 @@ $page = $_GET["page"];
                     <span>Rua das palmeiras, Nº 284E</span>
                     <span>Bairro Nossa senhora de fátima</span>
                     <span>CEP 78310-000</span>
-                    <span><a href="https://www.google.com.br/maps/dir/-13.6665549,-59.7896766/">Abrir no google map</a></span>
+                    <span><a href="https://www.google.com.br/maps/dir//-13.6665549,-59.7896766/" target="_blank">Abrir no google map</a></span>
                 </div>
                 <div>
                     <h3>Contato</h3>

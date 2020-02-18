@@ -69,7 +69,7 @@ button{
 }
 .box-control{
 	width: 100vw;
-	min-height: 80vh;
+	min-height: 70vh;
 	height: auto;
 	padding-top: 90px; 
 }
@@ -484,7 +484,7 @@ footer{
 	margin: auto;
 }
 .developer span{
-	color: var(--light-black);
+	color: var(--white);
 	font-size: 10px;
 }
 .developer img{
