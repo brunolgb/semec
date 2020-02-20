@@ -2,11 +2,12 @@
     include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'verify_session.php');
     include_once('..'. DIRECTORY_SEPARATOR .'..'. DIRECTORY_SEPARATOR .'class'. DIRECTORY_SEPARATOR .'LoadClass.php');
 
+    $con = new ConnectionDatabase();
+
     $id_update = $_GET["id"];
     $tbl_update = $_GET["tbl"];
     if(!empty($id_update) and !empty($tbl_update))
     {
-        $con = new ConnectionDatabase();
         $show = $con->find(
             "SELECT * FROM $tbl_update WHERE id=:id",
             array(":id" => $id_update)
@@ -56,9 +57,12 @@
                     <input type="hidden" name="update_id" value='<?php echo $id_update; ?>'>
                     <input type="hidden" name="update_tbl" value='<?php echo $tbl_update; ?>'>
                    <div class="fieldControl">
-                        <div class="fieldForm tam80">
+                        <div class="fieldForm tam80 searchData">
                             <label for="student">Nome do Aluno</label>
                             <input type="text" name='student' id='student' value="<?php echo $student; ?>" maxlength='255' required autofocus>
+                            <div class='viewSearchStudent'>
+
+                            </div>
                         </div>
                         <div class="fieldForm tam20">
                             <label for="birth">Data de Nascimento</label>
@@ -70,7 +74,7 @@
                             <label for="school">Escola que estudou</label>
                             <select name="school" id="school" required>
                                 <?php
-                                $con = new ConnectionDatabase();
+                                
                                 $listSchool = $con->find(
                                     "SELECT id, name_school, school_type FROM school",
                                     null

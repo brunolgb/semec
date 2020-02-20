@@ -242,3 +242,62 @@ if (footer != undefined) {
         footer.classList.toggle("footerColor")
     }, 2500);
 }
+
+const student = document.querySelector("#student");
+if (student != undefined) {
+    student.addEventListener('keyup', () =>{
+        const viewSearchStudent = document.querySelector('.viewSearchStudent');
+
+        if(student.value != '')
+        {
+            viewSearchStudent.classList.add('viewSearchStudent_show');
+            const req = new XMLHttpRequest();
+            req.open('GET',`./verificationDuplicate.php?student=${student.value}`, true)
+            req.onreadystatechange = () =>{
+                if(req.readyState === XMLHttpRequest.DONE && req.status === 200)
+                {
+                    const response = req.response;
+                    const response_json = JSON.parse(response);
+                    viewSearchStudent.innerHTML = '';
+                    if(response_json.length == 0)
+                    {
+                        viewSearchStudent.classList.remove('viewSearchStudent_show');
+                    }
+                    else{
+                        response_json.map((e) =>{
+                            const div_dataStudent = document.createElement('div');
+                            div_dataStudent.setAttribute('id', 'dataStudent');
+
+                            const span_nameStdent = document.createElement('span');
+                            span_nameStdent.setAttribute('id','nameStudent_search');
+                            span_nameStdent.innerHTML = e.student;
+
+                            const span_birthStdent = document.createElement('span');
+                            span_birthStdent.setAttribute('id', 'birthStudent_search');
+                            span_birthStdent.innerHTML = e.birth;
+
+                            //add childrens
+                            div_dataStudent.appendChild(span_nameStdent)
+                            div_dataStudent.appendChild(span_birthStdent)
+                            viewSearchStudent.appendChild(div_dataStudent)
+                        })
+                        //const dataStudent = document.querySelectorAll('#dataStudent');
+                        //const nameStudent_search = document.querySelectorAll('#nameStudent_search');
+                        //dataStudent.forEach((element, index) => {
+                        //    element.addEventListener('click', () => {
+                        //        student.value = nameStudent_search[index].innerHTML;
+                        //        viewSearchStudent.classList.remove('viewSearchStudent_show');
+                        //    })
+                        //})
+                    }
+                }
+            }
+            req.send()
+        }
+        else{
+            viewSearchStudent.classList.remove('viewSearchStudent_show');
+        }
+    })
+}
+
+function resultsStudent (){}

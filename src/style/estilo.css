@@ -188,7 +188,6 @@ button{
 	margin-bottom: 15px;
 	display: flex;
 	padding: 0px;
-	overflow: hidden;
 }
 .fieldForm:nth-child(2){
 	margin-left: 2px;
@@ -674,4 +673,44 @@ footer{
 .destination_city{display: none;}
 .anime_destination_city{
 	display: block;
+}
+.searchData{
+	position: relative;
+}
+.viewSearchStudent{
+	display: none;
+	position: absolute;
+	top: 60px;
+	z-index: 8888;
+	background: #fff;
+	padding: 5px;
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-width: 0px 1px 1px 1px;
+	border-color:var(--pattern);
+	border-style: solid;
+	overflow: auto;
+	cursor: not-allowed;
+}
+.viewSearchStudent_show{
+	display: block;
+
+}
+#dataStudent{
+	display: flex;
+	flex-wrap: nowrap;
+	margin: 10px 0px;
+}
+#dataStudent #nameStudent_search{
+	width: 80%;
+	padding-left: 10px;
+	color: var(--pattern);
+}
+#dataStudent #birthStudent_search{
+	width: 20%;
+	text-align: center;
+	color: #999
 }
