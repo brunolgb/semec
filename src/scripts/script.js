@@ -281,14 +281,6 @@ if (student != undefined) {
                             div_dataStudent.appendChild(span_birthStdent)
                             viewSearchStudent.appendChild(div_dataStudent)
                         })
-                        //const dataStudent = document.querySelectorAll('#dataStudent');
-                        //const nameStudent_search = document.querySelectorAll('#nameStudent_search');
-                        //dataStudent.forEach((element, index) => {
-                        //    element.addEventListener('click', () => {
-                        //        student.value = nameStudent_search[index].innerHTML;
-                        //        viewSearchStudent.classList.remove('viewSearchStudent_show');
-                        //    })
-                        //})
                     }
                 }
             }
