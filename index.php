@@ -38,20 +38,9 @@
 						</figure>
 					</div>
 				</section>
-				<section class="registration-section">
-					<div class="box_field">
-						<label for="name_person" class='tam30'>Nome</label>
-						<input type="text" name='name_person' id='name_person' placeholder='Digite seu nome completo' maxlength='200' title='Nome'>
-					</div>
-					<div class="box_field">
-						<label for="birth" class='tam40'>Nascimento</label>
-						<input type="date" name='birth' id='birth' placeholder='Digite sua data de nascimento' value='1990-01-01' title='Nascimento'>
-					</div>
-				</section>
 				<button class='submit'>Entrar</button>
 			</form>
 		</div>
-		<a href='cadastrar' class='registration' registration>Cadastrar-se</a>
 		<a href='./src/pages/about/?page=login' class='registration' registration>Sobre SEMEC</a>
 	</div>
 	<script src='./src/scripts/script_login.js'></script>
