@@ -7,7 +7,7 @@ class ConnectionDatabase{
     public function __construct()
     {
         try {
-            $this->connection = new PDO("pgsql:host=localhost, dbname=semec","postgres","p21s11b96");
+            $this->connection = new PDO("pgsql:host=motty.db.elephantsql.com, dbname=qohtrfgt","qohtrfgt","Zv9y8U3YrAiA5-rruGqkOdcURPVzGsrr");
         } catch (PDOException $erro) {
              throw new Exception("Erro no banco de dados {$erro}", 1);
         }
